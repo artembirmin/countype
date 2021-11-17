@@ -11,4 +11,5 @@ interface PhrasesCalculatorView {
     fun setItemsCursorToPosition(itemPosition: Int, cursorPosition: Int)
     fun setItemsCursorToEnd(itemPosition: Int)
     fun appendTextInItemAndSaveCursorPosition(text: String, itemPosition: Int)
+    fun updateRowNumberItemsLowerThan(itemPosition: Int, delta: Int)
 }

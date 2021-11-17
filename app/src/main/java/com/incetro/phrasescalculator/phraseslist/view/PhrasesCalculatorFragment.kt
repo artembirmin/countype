@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +41,7 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
     private fun initRecyclerView() {
         layoutManager = LinearLayoutManager(context)
         phrasesListAdapter = PhrasesListAdapter(
-            (0..9).map { Phrase(UUID.randomUUID().toString(), it.toString()) }.toMutableList(),
+            (0..9).map { Phrase(UUID.randomUUID().toString(),it+1, "строка №$it") }.toMutableList(),
             ::onEnterKeyClick,
             ::onDeleteKeyClick
         )
@@ -95,6 +96,10 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
         phrasesListAdapter.appendTextToPhraseExpression(text, itemPosition)
     }
 
+    override fun updateRowNumberItemsLowerThan(itemPosition: Int, delta: Int) {
+        phrasesListAdapter.updateRowNumberItemsLowerThan(itemPosition, delta)
+    }
+
     override fun setTextInItem(text: String, itemPosition: Int) {
         phrasesListAdapter.updatePhraseExpression(itemPosition, text)
     }
@@ -112,18 +117,20 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
         }
     }
 
-    override fun requestFocusOnPositionAndShowSoftKeyboard(positionInAdapter: Int) {
-        val editText = getPhraseInputFieldByViewHolderPosition(positionInAdapter)
+    override fun requestFocusOnPositionAndShowSoftKeyboard(position: Int) {
+        val editText = getPhraseInputFieldByViewHolderPosition(position)
         editText.requestFocus()
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
     }
 
     private fun getPhraseInputFieldByViewHolderPosition(itemPosition: Int): EditText {
-        val editTextPositionInCardView = 0
+        val layoutPosition = 0
+        val editTextPositionInCardView = 1
         val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager
         val cardView = linearLayoutManager.findViewByPosition(itemPosition) as CardView
-        return cardView.get(editTextPositionInCardView) as EditText
+        val layout = cardView.get(layoutPosition) as ConstraintLayout
+        return layout.get(editTextPositionInCardView) as EditText
     }
 
     companion object {

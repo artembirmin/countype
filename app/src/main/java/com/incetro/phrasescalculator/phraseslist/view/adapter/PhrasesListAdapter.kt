@@ -71,12 +71,22 @@ class PhrasesListAdapter(
         phrases[itemPosition].expression += text
     }
 
+    fun updateRowNumberItemsLowerThan(itemPosition: Int, delta: Int) {
+        (itemPosition + 1..phrases.lastIndex).forEach { position ->
+            phrases[position].position += delta
+        }
+        notifyItemRangeChanged(itemPosition + 1, phrases.lastIndex - (itemPosition))
+    }
+
     inner class PhraseViewHolder(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
         private val myCustomEditTextListener: MyCustomEditTextListener = MyCustomEditTextListener()
 
-        var editText: PhraseInputEditText = itemView.findViewById(R.id.edittext_item)
+        val rowNumberTextView: TextView = itemView.findViewById(R.id.row_number_textview)
+        var phraseInputEditText: PhraseInputEditText =
+            itemView.findViewById(R.id.phrase_input_edittext)
+        val answerTextView: TextView = itemView.findViewById(R.id.answer_textview)
 
         private val currentPosition
             get() = absoluteAdapterPosition
@@ -84,8 +94,8 @@ class PhrasesListAdapter(
         private var TAG = "PhraseViewHolder"
 
         init {
-            editText.addTextChangedListener(myCustomEditTextListener)
-            editText.setOnEditorActionListener { v, actionId, _ ->
+            phraseInputEditText.addTextChangedListener(myCustomEditTextListener)
+            phraseInputEditText.setOnEditorActionListener { v, actionId, _ ->
                 when (actionId) {
                     EditorInfo.IME_ACTION_NEXT -> {
                         onEnterKeyClick(
@@ -99,7 +109,7 @@ class PhrasesListAdapter(
                     else -> false
                 }
             }
-            editText.setOnKeyListener { view, keyCode, event ->
+            phraseInputEditText.setOnKeyListener { view, keyCode, event ->
                 Log.d(TAG, "setOnKeyListener: event = $event")
                 if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
                     if (view is TextView) {
@@ -120,7 +130,8 @@ class PhrasesListAdapter(
                 TAG,
                 "position = $position "
             )
-            editText.setText(phrase.expression)
+            phraseInputEditText.setText(phrase.expression)
+            rowNumberTextView.setText(phrase.position.toString())
         }
 
         inner class MyCustomEditTextListener : TextWatcher {

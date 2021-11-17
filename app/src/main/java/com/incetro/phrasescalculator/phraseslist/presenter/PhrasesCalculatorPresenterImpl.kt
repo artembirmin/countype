@@ -14,18 +14,15 @@ class PhrasesCalculatorPresenterImpl(private val view: PhrasesCalculatorView) :
         text: String
     ) {
         val newItemPosition = itemPosition + 1
-
         val leftPartOfText = text.substring(startIndex = 0, endIndex = selectionStart)
         val rightPartOfText = text.substring(startIndex = selectionEnd, endIndex = text.length)
-
         view.insertItemToPosition(
             newItemPosition,
-            Phrase(UUID.randomUUID().toString(), rightPartOfText)
+            Phrase(UUID.randomUUID().toString(), newItemPosition + 1, rightPartOfText)
         )
         view.setTextInItem(leftPartOfText, itemPosition)
-
         view.scrollRecyclerToPosition(newItemPosition)
-
+        view.updateRowNumberItemsLowerThan(newItemPosition, 1)
         android.os.Handler(Looper.getMainLooper())
             .postDelayed(
                 {
@@ -48,12 +45,13 @@ class PhrasesCalculatorPresenterImpl(private val view: PhrasesCalculatorView) :
             view.setItemsCursorToEnd(upperItemPosition)
             view.appendTextInItemAndSaveCursorPosition(text, upperItemPosition)
         } else {
-            if(text.isNotEmpty()){
+            if (text.isNotEmpty()) {
                 return
             }
             view.requestFocusOnPositionAndShowSoftKeyboard(1)
             view.setItemsCursorToEnd(1)
         }
         view.removeItemAtPosition(itemPosition)
+        view.updateRowNumberItemsLowerThan(upperItemPosition, -1)
     }
 }
