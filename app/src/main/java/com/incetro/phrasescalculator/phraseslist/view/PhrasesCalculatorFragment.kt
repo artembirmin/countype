@@ -112,7 +112,6 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
 
     override fun insertItemToPosition(position: Int, phrase: Phrase) {
         phrasesListAdapter.insertItemToPosition(position, phrase)
-        getPhraseViewHolder(position).selectionStartPosition = 0
     }
 
     override fun appendTextInItemAndSaveCursorPosition(text: String, itemPosition: Int) {

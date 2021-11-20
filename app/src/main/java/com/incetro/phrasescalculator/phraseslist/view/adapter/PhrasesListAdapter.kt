@@ -104,6 +104,11 @@ class PhrasesListAdapter(
         val answerTextView: TextView = itemView.findViewById(R.id.answer_textview)
 
         var selectionStartPosition: Int = 0
+        set(value) {
+            phrases[currentPosition].selectionStartPosition = value
+            field = value
+        }
+        get() = phrases[currentPosition].selectionStartPosition
 
         private val currentPosition
             get() = absoluteAdapterPosition
