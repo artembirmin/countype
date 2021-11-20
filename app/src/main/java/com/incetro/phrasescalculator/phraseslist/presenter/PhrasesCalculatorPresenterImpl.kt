@@ -7,6 +7,7 @@ import java.util.*
 
 class PhrasesCalculatorPresenterImpl(private val view: PhrasesCalculatorView) :
     PhrasesCalculatorPresenter {
+
     override fun onClickEnter(
         itemPosition: Int,
         selectionStart: Int,
@@ -26,7 +27,7 @@ class PhrasesCalculatorPresenterImpl(private val view: PhrasesCalculatorView) :
         android.os.Handler(Looper.getMainLooper())
             .postDelayed(
                 {
-                    view.requestFocusOnPositionAndShowSoftKeyboard(newItemPosition)
+                    view.requestFocusOnItemByPositionAndShowSoftKeyboard(newItemPosition)
                 },
                 10
             )
@@ -38,17 +39,19 @@ class PhrasesCalculatorPresenterImpl(private val view: PhrasesCalculatorView) :
         text: String,
         itemsCount: Int
     ) {
-        if (itemsCount == 1) return
+        if (itemsCount == 1) {
+            return
+        }
         val upperItemPosition = itemPosition - 1
         if (upperItemPosition >= 0) {
-            view.requestFocusOnPositionAndShowSoftKeyboard(upperItemPosition)
+            view.requestFocusOnItemByPositionAndShowSoftKeyboard(upperItemPosition)
             view.setItemsCursorToEnd(upperItemPosition)
             view.appendTextInItemAndSaveCursorPosition(text, upperItemPosition)
         } else {
             if (text.isNotEmpty()) {
                 return
             }
-            view.requestFocusOnPositionAndShowSoftKeyboard(1)
+            view.requestFocusOnItemByPositionAndShowSoftKeyboard(1)
             view.setItemsCursorToEnd(1)
         }
         view.removeItemAtPosition(itemPosition)

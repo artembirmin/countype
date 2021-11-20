@@ -2,11 +2,14 @@ package com.incetro.phrasescalculator.phraseslist.view
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
@@ -23,6 +26,7 @@ import java.util.*
 
 class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
 
+    private val TAG = "PhrasesCalculatorFragment"
     private val presenter: PhrasesCalculatorPresenter = PhrasesCalculatorPresenterImpl(this)
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var phrasesListAdapter: PhrasesListAdapter
@@ -41,9 +45,11 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
     private fun initRecyclerView() {
         layoutManager = LinearLayoutManager(context)
         phrasesListAdapter = PhrasesListAdapter(
-            (0..9).map { Phrase(UUID.randomUUID().toString(),it+1, "строка №$it") }.toMutableList(),
+            (0..2).map { Phrase(UUID.randomUUID().toString(), it + 1, "строка №$it") }
+                .toMutableList(),
             ::onEnterKeyClick,
-            ::onDeleteKeyClick
+            ::onDeleteKeyClick,
+            ::onMaxRowNumberWidthChange
         )
         with(recyclerView) {
             adapter = phrasesListAdapter
@@ -52,15 +58,35 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
         recyclerView.itemAnimator = null
     }
 
+    private fun onMaxRowNumberWidthChange(newValue: Int) {
+        Log.d(
+            TAG,
+            "onMaxRowNumberWidthChange: recyclerView.size = ${recyclerView.layoutManager?.itemCount}"
+        )
+        getAllRowNumberTextView(0..recyclerView.layoutManager!!.itemCount).forEach { textView ->
+            val lp = textView.layoutParams
+            lp.width = newValue + 10
+            textView.layoutParams = lp
+        }
+        android.os.Handler(Looper.getMainLooper())
+            .postDelayed(
+                {
+                    recyclerView.adapter?.notifyItemRangeChanged(
+                        0,
+                        recyclerView.layoutManager!!.itemCount
+                    )
+                },
+                20
+            )
+    }
+
     private fun onEnterKeyClick(
         itemPosition: Int,
         selectionStart: Int,
         selectionEnd: Int,
         text: String
     ) {
-        presenter.onClickEnter(
-            itemPosition, selectionStart, selectionEnd, text
-        )
+        presenter.onClickEnter(itemPosition, selectionStart, selectionEnd, text)
     }
 
     private fun onDeleteKeyClick(
@@ -69,9 +95,7 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
         text: String,
         itemCount: Int
     ) {
-        presenter.onClickDelete(
-            itemPosition, selectionStart, text, itemCount
-        )
+        presenter.onClickDelete(itemPosition, selectionStart, text, itemCount)
     }
 
     override fun setItemsCursorToPosition(itemPosition: Int, cursorPosition: Int) {
@@ -81,18 +105,21 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
 
     override fun setItemsCursorToEnd(itemPosition: Int) {
         val editText: EditText = getPhraseInputFieldByViewHolderPosition(itemPosition)
-        editText.setSelection(editText.text.length)
+        val selectionStart = editText.text.length
+        editText.setSelection(selectionStart)
+        getPhraseViewHolder(itemPosition).selectionStartPosition = selectionStart
     }
 
     override fun insertItemToPosition(position: Int, phrase: Phrase) {
         phrasesListAdapter.insertItemToPosition(position, phrase)
+        getPhraseViewHolder(position).selectionStartPosition = 0
     }
 
     override fun appendTextInItemAndSaveCursorPosition(text: String, itemPosition: Int) {
         val editText: EditText = getPhraseInputFieldByViewHolderPosition(itemPosition)
         val cursorPosition = editText.selectionStart
-        editText.text.append(text)
-        editText.setSelection(cursorPosition)
+        // editText.text.append(text)
+        //editText.setSelection(cursorPosition)
         phrasesListAdapter.appendTextToPhraseExpression(text, itemPosition)
     }
 
@@ -117,20 +144,44 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
         }
     }
 
-    override fun requestFocusOnPositionAndShowSoftKeyboard(position: Int) {
-        val editText = getPhraseInputFieldByViewHolderPosition(position)
+    override fun requestFocusOnItemByPositionAndShowSoftKeyboard(itemPosition: Int) {
+        val editText = getPhraseInputFieldByViewHolderPosition(itemPosition)
         editText.requestFocus()
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
     }
 
+    private fun getPhraseCardView(itemPosition: Int): CardView {
+        val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager
+        return linearLayoutManager.findViewByPosition(itemPosition) as CardView
+    }
+
+    private fun getPhraseViewHolder(itemPosition: Int): PhrasesListAdapter.PhraseViewHolder {
+        return recyclerView.getChildViewHolder(getPhraseCardView(itemPosition))
+                as PhrasesListAdapter.PhraseViewHolder
+    }
+
     private fun getPhraseInputFieldByViewHolderPosition(itemPosition: Int): EditText {
+        Log.d(TAG, "getPhraseInputFieldByViewHolderPosition: itemPosition = $itemPosition")
         val layoutPosition = 0
         val editTextPositionInCardView = 1
-        val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager
-        val cardView = linearLayoutManager.findViewByPosition(itemPosition) as CardView
+
+        val cardView = getPhraseCardView(itemPosition)
         val layout = cardView.get(layoutPosition) as ConstraintLayout
         return layout.get(editTextPositionInCardView) as EditText
+    }
+
+    private fun getAllRowNumberTextView(range: IntRange): List<TextView> {
+        val layoutPosition = 0
+        val rowNumberTextViewPositionInCardView = 0
+        val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager
+        return range.map { position ->
+            Log.d(TAG, "getAllRowNumberTextView: position = $position")
+            val cardView = linearLayoutManager.findViewByPosition(position) as? CardView
+            val layout = cardView?.get(layoutPosition) as? ConstraintLayout
+            return@map layout?.get(rowNumberTextViewPositionInCardView) as? TextView
+        }.filterNotNull()
+            .toList()
     }
 
     companion object {
