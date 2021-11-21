@@ -1,8 +1,8 @@
-package com.incetro.phrasescalculator.phraseslist.view
+package com.incetro.countype.recordslist.view
 
-import com.incetro.phrasescalculator.model.Record
+import com.incetro.countype.model.Record
 
-interface PhrasesCalculatorView {
+interface RecordsListView {
     fun insertItemToPosition(position: Int, record: Record)
     fun scrollRecyclerToPosition(position: Int)
     fun requestFocusOnItemByPositionAndShowSoftKeyboard(position: Int)

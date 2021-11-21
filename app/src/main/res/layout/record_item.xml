@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.incetro.phrasescalculator.phraseslist.view.custom.PhraseInputEditText
+        <com.incetro.countype.recordslist.view.custom.PhraseInputEditText
             android:id="@+id/phrase_input_edittext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

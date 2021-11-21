@@ -1,4 +1,4 @@
-package com.incetro.phrasescalculator.model
+package com.incetro.countype.model
 
 data class Record(
     val id: String,

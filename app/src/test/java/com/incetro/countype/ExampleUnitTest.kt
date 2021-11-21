@@ -1,4 +1,4 @@
-package com.incetro.phrasescalculator
+package com.incetro.countype
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.incetro.phrasescalculator.phraseslist.view.custom
+package com.incetro.countype.recordslist.view.custom
 
 import android.content.Context
 import android.util.AttributeSet

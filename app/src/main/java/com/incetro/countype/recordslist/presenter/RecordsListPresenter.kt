@@ -1,6 +1,6 @@
-package com.incetro.phrasescalculator.phraseslist.presenter
+package com.incetro.countype.recordslist.presenter
 
-interface PhrasesCalculatorPresenter {
+interface RecordsListPresenter {
 
     fun onClickEnter(
         itemPosition: Int,

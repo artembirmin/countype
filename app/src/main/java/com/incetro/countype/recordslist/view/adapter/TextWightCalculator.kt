@@ -1,14 +1,13 @@
-package com.incetro.phrasescalculator.phraseslist.view
+package com.incetro.countype.recordslist.view
 
 import android.graphics.Paint
 import android.graphics.Rect
 import android.widget.TextView
-import org.w3c.dom.Text
 
 
 private val bounds = Rect()
 
-private val referenceSymbol = "9"
+private const val referenceSymbol = "9"
 
 fun String.getWidhtForTextView(textView: TextView): Int {
     val textPaint: Paint = textView.getPaint()

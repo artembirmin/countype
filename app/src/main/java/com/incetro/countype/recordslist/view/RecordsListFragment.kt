@@ -1,4 +1,4 @@
-package com.incetro.phrasescalculator.phraseslist.view
+package com.incetro.countype.recordslist.view
 
 import android.content.Context
 import android.os.Bundle
@@ -16,20 +16,20 @@ import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.incetro.phrasescalculator.R
-import com.incetro.phrasescalculator.model.Record
-import com.incetro.phrasescalculator.phraseslist.interactor.PhrasesCalculatorInteractorImpl
-import com.incetro.phrasescalculator.phraseslist.presenter.PhrasesCalculatorPresenter
-import com.incetro.phrasescalculator.phraseslist.presenter.PhrasesCalculatorPresenterImpl
-import com.incetro.phrasescalculator.phraseslist.view.adapter.PhrasesListAdapter
+import com.incetro.countype.R
+import com.incetro.countype.model.Record
+import com.incetro.countype.recordslist.interactor.RecordsListInteractorImpl
+import com.incetro.countype.recordslist.presenter.RecordsListPresenter
+import com.incetro.countype.recordslist.presenter.RecordsListPresenterImpl
+import com.incetro.countype.recordslist.view.adapter.PhrasesListAdapter
 import java.util.*
 
 
-class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
+class RecordsListFragment : Fragment(), RecordsListView {
 
-    private val TAG = "PhrasesCalculatorFragment"
-    private val presenter: PhrasesCalculatorPresenter =
-        PhrasesCalculatorPresenterImpl(this, PhrasesCalculatorInteractorImpl())
+    private val TAG = "RecordsListFragment"
+    private val presenter: RecordsListPresenter =
+        RecordsListPresenterImpl(this, RecordsListInteractorImpl())
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var phrasesListAdapter: PhrasesListAdapter
     private lateinit var recyclerView: RecyclerView
@@ -38,8 +38,8 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.recycler_view, container, false)
-        recyclerView = view.findViewById(R.id.recyclerview)
+        val view = inflater.inflate(R.layout.records_list_recyclerview, container, false)
+        recyclerView = view.findViewById(R.id.records_list_recyclerview)
         initRecyclerView()
         return view
     }
@@ -191,6 +191,6 @@ class PhrasesCalculatorFragment : Fragment(), PhrasesCalculatorView {
     }
 
     companion object {
-        fun newInstance(): PhrasesCalculatorFragment = PhrasesCalculatorFragment()
+        fun newInstance(): RecordsListFragment = RecordsListFragment()
     }
 }

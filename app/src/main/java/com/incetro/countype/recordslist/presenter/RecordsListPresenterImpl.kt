@@ -1,16 +1,16 @@
-package com.incetro.phrasescalculator.phraseslist.presenter
+package com.incetro.countype.recordslist.presenter
 
 import android.os.Looper
-import com.incetro.phrasescalculator.model.Record
-import com.incetro.phrasescalculator.phraseslist.interactor.PhrasesCalculatorInteractor
-import com.incetro.phrasescalculator.phraseslist.view.PhrasesCalculatorView
+import com.incetro.countype.model.Record
+import com.incetro.countype.recordslist.interactor.RecordsListInteractor
+import com.incetro.countype.recordslist.view.RecordsListView
 import java.util.*
 
-class PhrasesCalculatorPresenterImpl(
-    private val view: PhrasesCalculatorView,
-    private val interactor: PhrasesCalculatorInteractor
+class RecordsListPresenterImpl(
+    private val view: RecordsListView,
+    private val interactor: RecordsListInteractor
 ) :
-    PhrasesCalculatorPresenter {
+    RecordsListPresenter {
 
     override fun onClickEnter(
         itemPosition: Int,

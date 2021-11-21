@@ -1,4 +1,4 @@
-package com.incetro.phrasescalculator.phraseslist.view.adapter
+package com.incetro.countype.recordslist.view.adapter
 
 import android.util.Log
 import android.view.KeyEvent
@@ -9,11 +9,11 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
-import com.incetro.phrasescalculator.R
-import com.incetro.phrasescalculator.model.Record
-import com.incetro.phrasescalculator.phraseslist.view.custom.PhraseInputEditText
-import com.incetro.phrasescalculator.phraseslist.view.getMaxWidhtOfCountOfSymbols
-import com.incetro.phrasescalculator.phraseslist.view.getWidhtForTextView
+import com.incetro.countype.R
+import com.incetro.countype.model.Record
+import com.incetro.countype.recordslist.view.custom.PhraseInputEditText
+import com.incetro.countype.recordslist.view.getMaxWidhtOfCountOfSymbols
+import com.incetro.countype.recordslist.view.getWidhtForTextView
 
 typealias OnEnterKeyClick = (
     itemPosition: Int,
@@ -55,7 +55,7 @@ class PhrasesListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhraseViewHolder {
         val v = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recyclerview_edittext_item, parent, false)
+            .inflate(R.layout.record_item, parent, false)
         return PhraseViewHolder(v)
     }
 

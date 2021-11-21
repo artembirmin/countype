@@ -1,4 +1,4 @@
-package com.incetro.phrasescalculator.common
+package com.incetro.countype.common
 
 import ru.terrakok.cicerone.Router
 

@@ -1,8 +1,8 @@
-package com.incetro.phrasescalculator.common
+package com.incetro.countype.common
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.incetro.phrasescalculator.R
+import com.incetro.countype.R
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
