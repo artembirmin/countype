@@ -11,13 +11,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/row_number_textview"
-            android:layout_width="10dp"
+            android:id="@+id/position_textview"
+            android:layout_width="20dp"
             android:layout_height="0dp"
             android:layout_marginStart="4dp"
             android:gravity="center"
             android:paddingTop="3dp"
-            android:text="1"
+            android:text="99"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/answer_textview"
-            app:layout_constraintStart_toEndOf="@+id/row_number_textview"
+            app:layout_constraintStart_toEndOf="@+id/position_textview"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

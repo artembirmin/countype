@@ -15,4 +15,6 @@ interface PhrasesCalculatorPresenter {
         text: String,
         itemsCount: Int
     )
+
+    fun onPhraseTyping(phrase: String, itemPosition: Int)
 }

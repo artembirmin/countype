@@ -1,9 +1,5 @@
 package com.incetro.phrasescalculator.phraseslist.view.adapter
 
-import android.graphics.Paint
-import android.graphics.Rect
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -14,9 +10,10 @@ import android.widget.TextView
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.incetro.phrasescalculator.R
-import com.incetro.phrasescalculator.model.Phrase
+import com.incetro.phrasescalculator.model.Record
 import com.incetro.phrasescalculator.phraseslist.view.custom.PhraseInputEditText
-import com.incetro.phrasescalculator.phraseslist.view.getWightForTextView
+import com.incetro.phrasescalculator.phraseslist.view.getMaxWidhtOfCountOfSymbols
+import com.incetro.phrasescalculator.phraseslist.view.getWidhtForTextView
 
 typealias OnEnterKeyClick = (
     itemPosition: Int,
@@ -32,13 +29,19 @@ typealias OnDeleteKeyClick = (
     itemCount: Int
 ) -> Unit
 
+typealias OnPhraseTyping = (
+    phraseExpression: String,
+    itemPosition: Int,
+) -> Unit
+
 typealias OnMaxRowNumberWidthChange = (newValue: Int) -> Unit
 
 class PhrasesListAdapter(
-    private val phrases: MutableList<Phrase>,
+    private val records: MutableList<Record>,
     private val onEnterKeyClick: OnEnterKeyClick,
     private val onDeleteKeyClick: OnDeleteKeyClick,
     private val onMaxRowNumberWidthChange: OnMaxRowNumberWidthChange,
+    private val onPhraseTyping: OnPhraseTyping,
 ) : RecyclerView.Adapter<PhrasesListAdapter.PhraseViewHolder>() {
 
     private val TAG = "PhrasesListAdapter"
@@ -48,6 +51,8 @@ class PhrasesListAdapter(
             onMaxRowNumberWidthChange(value)
         }
 
+    // Overridden methods
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhraseViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.recyclerview_edittext_item, parent, false)
@@ -56,155 +61,174 @@ class PhrasesListAdapter(
 
     override fun onBindViewHolder(holderPhrase: PhraseViewHolder, position: Int) {
         Log.d(TAG, "onBindViewHolder: position = $position")
-        holderPhrase.bind(phrases[position], position)
+        holderPhrase.bind(records[position], position)
     }
 
     override fun getItemCount(): Int {
-        return phrases.size
+        return records.size
     }
 
-    fun insertItemToPosition(position: Int, phrase: Phrase) {
+    // Методы изменения содержимиого списка
+
+    // Добваление
+
+    fun insertItemToPosition(position: Int, record: Record) {
         Log.d(TAG, "insertItemToPosition: position = $position")
-        phrases.add(position, phrase)
+        records.add(position, record)
         notifyItemInserted(position)
     }
 
+    // Удаление
+
     fun removeItemAt(position: Int) {
-        phrases.removeAt(position)
+        records.removeAt(position)
         notifyItemRemoved(position)
     }
 
-    fun updatePhraseExpression(itemPosition: Int, text: String) {
-        phrases[itemPosition].expression = text
-        notifyItemChanged(itemPosition)
-    }
+    // Обновление, изменение
 
-    fun appendTextToPhraseExpression(text: String, itemPosition: Int) {
-        phrases[itemPosition].expression += text
+    fun updatePhraseExpression(itemPosition: Int, text: String) {
+        records[itemPosition].phrase = text
         notifyItemChanged(itemPosition)
     }
 
     fun updateRowNumberItemsLowerThan(itemPosition: Int, delta: Int) {
-        (itemPosition + 1..phrases.lastIndex).forEach { position ->
-            phrases[position].position += delta
+        (itemPosition + 1..records.lastIndex).forEach { position ->
+            records[position].position += delta
         }
-        notifyItemRangeChanged(itemPosition + 1, phrases.lastIndex - (itemPosition))
+        notifyItemRangeChanged(itemPosition + 1, records.lastIndex - (itemPosition))
+    }
+
+    fun updateAnswerWithoutNotify(answer: String, itemPosition: Int) {
+        records[itemPosition].answer = answer
+    }
+
+    fun appendTextToPhraseExpression(text: String, itemPosition: Int) {
+        records[itemPosition].phrase += text
+        notifyItemChanged(itemPosition)
     }
 
     inner class PhraseViewHolder(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
-        private val myCustomEditTextListener: MyCustomEditTextListener = MyCustomEditTextListener()
 
-        val rowNumberTextView: TextView = itemView.findViewById(R.id.row_number_textview)
+        private var TAG = "PhraseViewHolder"
 
-        var phraseInputEditText: PhraseInputEditText =
+        // Views
+
+        private val positionTextView: TextView = itemView.findViewById(R.id.position_textview)
+
+        private val phraseInputEditText: PhraseInputEditText =
             itemView.findViewById(R.id.phrase_input_edittext)
 
         val answerTextView: TextView = itemView.findViewById(R.id.answer_textview)
 
-        var selectionStartPosition: Int = 0
-        set(value) {
-            phrases[currentPosition].selectionStartPosition = value
-            field = value
-        }
-        get() = phrases[currentPosition].selectionStartPosition
+        // Other
 
-        private val currentPosition
+        private val currentItemPosition
             get() = absoluteAdapterPosition
 
-        private var TAG = "PhraseViewHolder"
-
         init {
-            phraseInputEditText.addTextChangedListener(myCustomEditTextListener)
-            phraseInputEditText.setOnEditorActionListener { v, actionId, _ ->
-                when (actionId) {
-                    EditorInfo.IME_ACTION_NEXT -> {
-                        onEnterKeyClick(
-                            currentPosition,
-                            v.selectionStart,
-                            v.selectionEnd,
-                            v.text.toString()
-                        )
-                        checkMaxRowNumberWidth()
-                        true
-                    }
-                    else -> false
+            phraseInputEditText.doOnTextChanged { text, _, _, _ ->
+                text?.let {
+                    savePhraseToRecords(text)
+                    onPhraseTyping(text.toString(), currentItemPosition)
                 }
+            }
+            phraseInputEditText.setOnEditorActionListener { v, actionId, _ ->
+                onActionNext(v, actionId)
             }
             phraseInputEditText.setOnKeyListener { view, keyCode, event ->
-                Log.d(TAG, "setOnKeyListener: event = $event")
-                if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
-                    if (view is TextView) {
+                onKeyDelete(keyCode, event, view)
+            }
+        }
 
-                        onDeleteKeyClick(
-                            currentPosition,
-                            view.selectionStart,
-                            view.text.toString(),
-                            itemCount
-                        )
-                        checkMaxRowNumberWidth()
-                    }
-                }
+        // Методы листенеров
+
+        private fun savePhraseToRecords(text: CharSequence) {
+            records[currentItemPosition].phrase = text.toString()
+        }
+
+        private fun onActionNext(v: TextView, actionId: Int) = when (actionId) {
+            EditorInfo.IME_ACTION_NEXT -> {
+                onEnterKeyClick(
+                    currentItemPosition,
+                    v.selectionStart,
+                    v.selectionEnd,
+                    v.text.toString()
+                )
+                checkMaxRowNumberWidth()
                 true
             }
+            else -> false
         }
 
-        private fun checkMaxRowNumberWidth(){
-            if(phrases.size == 1) {
-                return
+        private fun onKeyDelete(
+            keyCode: Int,
+            event: KeyEvent,
+            view: View?
+        ): Boolean {
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
+                if (view is TextView) {
+                    onDeleteKeyClick(
+                        currentItemPosition,
+                        view.selectionStart,
+                        view.text.toString(),
+                        itemCount
+                    )
+                    checkMaxRowNumberWidth()
+                }
             }
-            val lastPhrasePosition = phrases.last().position.toString()
-            val lastPhrasePositionWight = lastPhrasePosition.getWightForTextView(rowNumberTextView)
-            if(lastPhrasePositionWight > maxRowNumberWidth){
-                maxRowNumberWidth = lastPhrasePositionWight
-            }
-            if(lastPhrasePositionWight < maxRowNumberWidth - 12){
-                maxRowNumberWidth = lastPhrasePositionWight
-            }
+            return true
         }
 
-        fun bind(phrase: Phrase, position: Int) {
-            Log.d(
-                TAG,
-                "position = $position,\n" +
-                        "rowNumberTextView.layoutParams.width = ${rowNumberTextView.layoutParams.width}"
-            )
-            phraseInputEditText.setText(phrase.expression)
-            phraseInputEditText.setSelection(selectionStartPosition)
+        // onBind
+
+        fun bind(record: Record, position: Int) {
+
+            phraseInputEditText.setText(record.phrase)
+            answerTextView.setText(record.answer)
 
             checkMaxRowNumberWidth()
 
-            val lp = rowNumberTextView.layoutParams
-            lp.width = maxRowNumberWidth + 10
-            rowNumberTextView.layoutParams = lp
+            setPositionTextViewWidth(maxRowNumberWidth)
 
-            val phrasePosition = (phrase.position).toString()
-            rowNumberTextView.setText(phrasePosition)
+            val itemPosition = (record.position).toString()
+            positionTextView.setText(itemPosition)
         }
 
-        inner class MyCustomEditTextListener : TextWatcher {
+        //  position_text_view width
 
-            override fun beforeTextChanged(
-                charSequence: CharSequence, start: Int, before: Int, after: Int
-            ) {
+        private fun checkMaxRowNumberWidth() {
+            if (maxRowNumberWidth == 0) {
+                initMaxRowNumberWidth()
             }
-
-            override fun onTextChanged(
-                charSequence: CharSequence,
-                start: Int,
-                before: Int,
-                after: Int
-            ) {
-                Log.d(
-                    "TextWatcher",
-                    "onTextChanged: start = $start, before = $before, after = $after"
-                )
-                phrases[currentPosition].expression = charSequence.toString()
+            if (records.size == 1) {
+                return
             }
+            val lastPhrasePosition = records.last().position.toString()
+            val lastPhrasePositionWidht = lastPhrasePosition.getWidhtForTextView(positionTextView)
 
-            override fun afterTextChanged(editable: Editable) {
+            if (lastPhrasePositionWidht > maxRowNumberWidth) {
+                maxRowNumberWidth = lastPhrasePositionWidht
+            }
+            if (lastPhrasePositionWidht < (maxRowNumberWidth -
+                        positionTextView.getMaxWidhtOfCountOfSymbols(1))
+                && lastPhrasePosition.length >= 2
+            ) {
+                maxRowNumberWidth = lastPhrasePositionWidht
             }
         }
+
+        private fun initMaxRowNumberWidth() {
+            maxRowNumberWidth = positionTextView.getMaxWidhtOfCountOfSymbols(2)
+        }
+
+        private fun setPositionTextViewWidth(width: Int) {
+            val lp = positionTextView.layoutParams
+            lp.width = width
+            positionTextView.layoutParams = lp
+        }
+
     }
 }

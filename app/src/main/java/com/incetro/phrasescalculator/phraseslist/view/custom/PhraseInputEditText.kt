@@ -12,6 +12,8 @@ import androidx.appcompat.widget.AppCompatEditText
 
 class PhraseInputEditText : AppCompatEditText {
 
+    private val TAG = "PhraseInputEditText"
+
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -22,6 +24,20 @@ class PhraseInputEditText : AppCompatEditText {
         defStyleAttr
     )
 
+    override fun setText(text: CharSequence?, type: BufferType?) {
+        val selectionStart = selectionStart
+        val selectionEnd = selectionEnd
+        super.setText(text, type)
+        text?.let {
+            Log.d(TAG, "setText: selectionEnd = ${selectionEnd}")
+            if (selectionEnd <= text.length) {
+                setSelection(selectionStart, selectionEnd)
+            } else {
+                setSelection(0)
+            }
+        }
+    }
+
     override fun onCreateInputConnection(outAttrs: EditorInfo?): InputConnection {
         val connection = super.onCreateInputConnection(outAttrs)
         val imeActions = outAttrs!!.imeOptions and EditorInfo.IME_MASK_ACTION
@@ -31,16 +47,16 @@ class PhraseInputEditText : AppCompatEditText {
             // set the DONE action
             outAttrs.imeOptions = outAttrs.imeOptions or EditorInfo.IME_ACTION_NEXT
         }
-        if (outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION !== 0) {
+        if (outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION != 0) {
             outAttrs.imeOptions =
                 outAttrs.imeOptions and EditorInfo.IME_FLAG_NO_ENTER_ACTION.inv()
         }
-        return MyInputConnection(connection, true)
+        return SendKeyEventOverriddenInputConnection(connection, true)
     }
 
-
-    inner class MyInputConnection(target: InputConnection?, mutable: Boolean) :
+    inner class SendKeyEventOverriddenInputConnection(target: InputConnection?, mutable: Boolean) :
         InputConnectionWrapper(target, mutable) {
+
         override fun sendKeyEvent(event: KeyEvent): Boolean {
             Log.d("PhraseInputEditText", "sendKeyEvent KeyEvent $event")
 
@@ -53,5 +69,5 @@ class PhraseInputEditText : AppCompatEditText {
             return super.sendKeyEvent(event)
         }
     }
-
 }
+
