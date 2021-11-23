@@ -1,6 +1,10 @@
 package com.incetro.countype.recordslist.presenter
 
+import com.incetro.countype.recordslist.view.RecordsListView
+
 interface RecordsListPresenter {
+
+    fun attachView(recordsListView: RecordsListView)
 
     fun onClickEnter(
         itemPosition: Int,
@@ -17,4 +21,5 @@ interface RecordsListPresenter {
     )
 
     fun onPhraseTyping(phrase: String, itemPosition: Int)
+
 }

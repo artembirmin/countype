@@ -7,10 +7,14 @@ import com.incetro.countype.recordslist.view.RecordsListView
 import java.util.*
 
 class RecordsListPresenterImpl(
-    private val view: RecordsListView,
     private val interactor: RecordsListInteractor
-) :
-    RecordsListPresenter {
+) : RecordsListPresenter {
+
+    private lateinit var view: RecordsListView
+
+    override fun attachView(recordsListView: RecordsListView) {
+        view = recordsListView
+    }
 
     override fun onClickEnter(
         itemPosition: Int,

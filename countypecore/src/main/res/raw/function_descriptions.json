@@ -1,0 +1,39 @@
+{
+  "unitRelated": [
+    {
+      "id": "unitToUnit",
+      "templates": [
+        {
+          "expression": "__number __unit в __unit",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "сколько __unit в __number __unit",
+          "argumentsOrder": [
+            3,
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "percentage": [
+    {
+      "id": "percentOf",
+      "templates": [
+        {
+          "expression": "__percentage от __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ]
+}

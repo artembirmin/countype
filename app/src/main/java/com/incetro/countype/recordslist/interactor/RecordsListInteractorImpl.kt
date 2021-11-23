@@ -1,7 +1,10 @@
 package com.incetro.countype.recordslist.interactor
 
-class RecordsListInteractorImpl : RecordsListInteractor {
+import com.incetro.countypecore.calculator.Calculator
+
+class RecordsListInteractorImpl(val calculator: Calculator) : RecordsListInteractor {
+
     override fun calculatePhrase(phrase: String): String {
-        return "ответ на $phrase"
+        return calculator.calculateOrNull(phrase) ?: ""
     }
 }

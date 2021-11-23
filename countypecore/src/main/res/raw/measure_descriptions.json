@@ -1,0 +1,119 @@
+{
+  "length": [
+    {
+      "aliases": [
+        "метров",
+        "метры",
+        "метра",
+        "метрах"
+      ],
+      "id": "meters",
+      "symbol": "м",
+      "baseMeasureId": "meters",
+      "multiplier": 1.0
+    },
+    {
+      "aliases": [
+        "километров",
+        "километры",
+        "километра",
+        "километрах"
+      ],
+      "id": "kilometers",
+      "symbol": "км",
+      "baseMeasureId": "meters",
+      "multiplier": 1000.0
+    },
+    {
+      "aliases": [
+        "сантиметров",
+        "сантиметры",
+        "сантиметра",
+        "сантиметрах"
+      ],
+      "id": "centimeters",
+      "symbol": "см",
+      "baseMeasureId": "meters",
+      "multiplier": 0.01
+    },
+    {
+      "aliases": [
+        "миллиметров",
+        "миллиметры",
+        "миллиметра",
+        "миллиметрах"
+      ],
+      "id": "millimeters",
+      "symbol": "мм",
+      "baseMeasureId": "meters",
+      "multiplier": 1e-3
+    }
+  ],
+  "area": [
+    {
+      "aliases": [
+        "квадратных километров",
+        "квадратные километры",
+        "квадратных километра",
+        "квадратных километрах",
+        "квадратный километр"
+      ],
+      "id": "squareKilometers",
+      "symbol": "км²",
+      "baseMeasureId": "squareMeters",
+      "multiplier": 1e+6
+    },
+    {
+      "aliases": [
+        "квадратных метров",
+        "квадратные метры",
+        "квадратных метра",
+        "квадратных метрах",
+        "квадратный метр"
+      ],
+      "id": "squareMeters",
+      "symbol": "м²",
+      "baseMeasureId": "squareMeters",
+      "multiplier": 1e+0
+    },
+    {
+      "aliases": [
+        "квадратных сантиметров",
+        "квадратные сантиметры",
+        "квадратных сантиметра",
+        "квадратных сантиметрах",
+        "квадратный сантиметр"
+      ],
+      "id": "squareCentimeters",
+      "symbol": "см²",
+      "baseMeasureId": "squareMeters",
+      "multiplier": 1e-4
+    },
+    {
+      "aliases": [
+        "квадратных миллиметров",
+        "квадратные миллиметры",
+        "квадратных миллиметры",
+        "квадратных миллиметрах",
+        "квадратный миллиметр"
+      ],
+      "id": "squareMillimeters",
+      "symbol": "мм²",
+      "baseMeasureId": "squareMeters",
+      "multiplier": 1e-6
+    },
+    {
+      "aliases": [
+        "квадратных микрометров",
+        "квадратные микрометры",
+        "квадратных микрометры",
+        "квадратных микрометрах",
+        "квадратный микрометр"
+      ],
+      "id": "squareMicrometers",
+      "symbol": "мкм²",
+      "baseMeasureId": "squareMeters",
+      "multiplier": 1e-10
+    }
+  ]
+}

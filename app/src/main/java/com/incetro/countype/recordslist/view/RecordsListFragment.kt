@@ -17,20 +17,24 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.incetro.countype.R
+import com.incetro.countype.common.AppActivity
+import com.incetro.countype.di.recordslist.DaggerRecordsListComponent
 import com.incetro.countype.model.Record
-import com.incetro.countype.recordslist.interactor.RecordsListInteractorImpl
 import com.incetro.countype.recordslist.presenter.RecordsListPresenter
-import com.incetro.countype.recordslist.presenter.RecordsListPresenterImpl
 import com.incetro.countype.recordslist.view.adapter.PhrasesListAdapter
 import java.util.*
+import javax.inject.Inject
 
 
 class RecordsListFragment : Fragment(), RecordsListView {
 
     private val TAG = "RecordsListFragment"
-    private val presenter: RecordsListPresenter =
-        RecordsListPresenterImpl(this, RecordsListInteractorImpl())
+
+    @Inject
+    lateinit var presenter: RecordsListPresenter
+
     private lateinit var layoutManager: LinearLayoutManager
+
     private lateinit var phrasesListAdapter: PhrasesListAdapter
     private lateinit var recyclerView: RecyclerView
 
@@ -38,16 +42,24 @@ class RecordsListFragment : Fragment(), RecordsListView {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        inject()
         val view = inflater.inflate(R.layout.records_list_recyclerview, container, false)
         recyclerView = view.findViewById(R.id.records_list_recyclerview)
         initRecyclerView()
+        presenter.attachView(this)
         return view
+    }
+
+    private fun inject() {
+        DaggerRecordsListComponent.builder()
+            .activityComponent(AppActivity.activityComponent) // KOLKHOZ
+            .build().inject(this)
     }
 
     private fun initRecyclerView() {
         layoutManager = LinearLayoutManager(context)
         phrasesListAdapter = PhrasesListAdapter(
-            (0..8).map { Record(UUID.randomUUID().toString(), it + 1, "строка №$it", "") }
+            (0..13).map { Record(UUID.randomUUID().toString(), it + 1, "$it% от 13", "") }
                 .toMutableList(),
             ::onEnterKeyClick,
             ::onDeleteKeyClick,
