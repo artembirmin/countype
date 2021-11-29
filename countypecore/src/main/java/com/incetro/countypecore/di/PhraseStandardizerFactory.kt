@@ -5,8 +5,8 @@
 
 package com.incetro.countypecore.di
 
-import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizer
-import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizerImpl
+import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizer
+import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizerImpl
 
 /**
  * [PhraseStandardizer] factory.

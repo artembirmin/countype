@@ -1,4 +1,4 @@
-package com.incetro.countypecore.interactor
+package com.incetro.countypecore.calculator.interactor
 
 import com.incetro.countypecore.data.repository.functiondescription.factory.TemplateExpressionToRegexMapper
 import com.incetro.countypecore.model.function.functiondescription.Template

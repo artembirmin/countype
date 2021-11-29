@@ -19,6 +19,6 @@ fun TextView.getWidhtOfText(text: String): Int {
     return text.getWidhtForTextView(this)
 }
 
-fun TextView.getMaxWidhtOfCountOfSymbols(count: Int): Int{
+fun TextView.getMaxWidhtOfCountOfSymbols(count: Int): Int {
     return referenceSymbol.repeat(count).getWidhtForTextView(this)
 }

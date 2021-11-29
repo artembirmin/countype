@@ -7,11 +7,11 @@ package com.incetro.countypecore.di
 
 import android.content.res.Resources
 import com.incetro.countypecore.data.repository.functiondescription.factory.TemplateExpressionToRegexMapper
-import com.incetro.countypecore.interactor.PhraseUnnecessaryCleaner
-import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractor
-import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractorImpl
-import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizer
-import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizerImpl
+import com.incetro.countypecore.calculator.interactor.PhraseUnnecessaryCleaner
+import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractor
+import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractorImpl
+import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizer
+import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizerImpl
 
 /**
  * [CalculationInteractor] factory.

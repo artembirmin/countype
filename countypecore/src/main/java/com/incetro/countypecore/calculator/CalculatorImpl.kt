@@ -2,7 +2,7 @@ package com.incetro.countypecore.calculator
 
 import android.content.res.Resources
 import com.incetro.countypecore.di.RecognitionInteractorFactory
-import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractor
+import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractor
 
 class CalculatorImpl(
     private val resources: Resources,

@@ -3,7 +3,7 @@
  * Copyright © 2021 Incetro Inc. All rights reserved.
  */
 
-package com.incetro.countypecore.interactor.calculationinteractor
+package com.incetro.countypecore.calculator.interactor.calculationinteractor
 
 import com.incetro.countypecore.model.returnablevalue.FormattedValue
 

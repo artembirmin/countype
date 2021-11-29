@@ -12,7 +12,7 @@ import com.incetro.countypecore.di.LexemesParserFactory
 import com.incetro.countypecore.di.PhraseStandardizerFactory
 import com.incetro.countypecore.di.RecognitionInteractorFactory
 import com.incetro.countypecore.di.RepositoriesFactory
-import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractorImpl
+import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractorImpl
 
 internal open class BaseTest {
 
