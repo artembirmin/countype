@@ -50,7 +50,7 @@ internal class FunctionDescriptionRepositoryImpl(
 
     override fun findTemplateAndFunctionIdByPhrase(phrase: String): TemplateWithFunctionIdResult =
         templateExpressionRegexToTemplateWithFunctionIdMap.keys.firstOrNull { regex ->
-            regex.matches(
+            regex.containsMatchIn(
                 phrase
             )
         }?.let { templateExpressionRegexToTemplateWithFunctionIdMap[it] }

@@ -10,12 +10,12 @@
 
 package com.incetro.countypecore.interactor.calculationinteractor
 
-import android.content.res.Resources
 import com.incetro.countypecore.common.KeywordsConstants
 import com.incetro.countypecore.core.LexemesParser
 import com.incetro.countypecore.data.repository.function.FunctionRepository
 import com.incetro.countypecore.data.repository.functiondescription.FunctionDescriptionRepository
 import com.incetro.countypecore.data.repository.measure.MeasureRepository
+import com.incetro.countypecore.interactor.PhraseUnnecessaryCleaner
 import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizer
 import com.incetro.countypecore.model.function.ArgumentType
 import com.incetro.countypecore.model.function.ArgumentType.*
@@ -28,21 +28,30 @@ internal class CalculationInteractorImpl(
     private val functionRepository: FunctionRepository,
     private val functionDescriptionRepository: FunctionDescriptionRepository,
     private val measureRepository: MeasureRepository,
-    private val phraseStandardizer: PhraseStandardizer
+    private val phraseStandardizer: PhraseStandardizer,
+    private val phraseUnnecessaryCleaner: PhraseUnnecessaryCleaner
 ) : CalculationInteractor {
 
     /**
      * Вычисляет команду, описанную в [phrase].
      */
     override fun calculate(phrase: String): FormattedValue {
-        val standardizedPhrase = phraseStandardizer.createStandardizedPhrase(phrase)
+        val standardizedPhrase = phrase.standardized()
         val (template: Template, functionId: String) = functionDescriptionRepository
-                .findTemplateAndFunctionIdByPhrase(standardizedPhrase)
+            .findTemplateAndFunctionIdByPhrase(standardizedPhrase)
+        val cleanedPhrase = standardizedPhrase.cleaned(template)
         val function = functionRepository.findFunctionById(functionId)
-        val lexemes = lexemesParser.getLexems(standardizedPhrase, template)
+        val lexemes = lexemesParser.getLexems(cleanedPhrase, template)
         val args = getDefinedArgsTypes(lexemes, function.argumentTypes)
         return function(args)
     }
+
+    private fun String.cleaned(template: Template): String =
+        phraseUnnecessaryCleaner.createCleanedPhrase(this, template)
+
+    private fun String.standardized(): String =
+        phraseStandardizer.createStandardizedPhrase(this)
+
 
     /**
      * Определяет типы объектов, которые соответствуют лексемам в списке [lexemes].
@@ -56,10 +65,10 @@ internal class CalculationInteractorImpl(
         val argsWithTypes = lexemes.map { lexeme ->
             for (type in argumentTypes) {
                 when (type) {
-                    NUMBER     -> {
+                    NUMBER -> {
                         return@map lexeme.toDoubleOrNull() ?: continue
                     }
-                    UNIT       -> {
+                    UNIT -> {
                         return@map measureRepository.findMeasureByAlias(lexeme) ?: continue
                     }
                     PERCENTAGE -> {

@@ -26,7 +26,7 @@ internal abstract class DiFactory {
     protected fun getInstance(clazz: KClass<*>, vararg argsForConstructor: Any): Any {
         return instances[clazz]
             ?: clazz.primaryConstructor!!
-                    .call(*argsForConstructor)
-                    .also { instances[clazz] = it }
+                .call(*argsForConstructor)
+                .also { instances[clazz] = it }
     }
 }

@@ -6,8 +6,12 @@
 package com.incetro.countypecore.di
 
 import android.content.res.Resources
+import com.incetro.countypecore.data.repository.functiondescription.factory.TemplateExpressionToRegexMapper
+import com.incetro.countypecore.interactor.PhraseUnnecessaryCleaner
 import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractor
 import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractorImpl
+import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizer
+import com.incetro.countypecore.interactor.phrasestandardizer.PhraseStandardizerImpl
 
 /**
  * [CalculationInteractor] factory.
@@ -23,8 +27,26 @@ internal object RecognitionInteractorFactory : DiFactory() {
             RepositoriesFactory.getFunctionRepository(),
             RepositoriesFactory.getFunctionDescriptionRepository(resources),
             RepositoriesFactory.getMeasureRepository(resources),
-            PhraseStandardizerFactory.getPhraseStandardizer()
+            getPhraseStandardizer(),
+            getPhraseUnnecessaryCleaner()
         ) as CalculationInteractor
 
+    }
+
+    /**
+     * @return [PhraseStandardizer] instance.
+     */
+    private fun getPhraseStandardizer(): PhraseStandardizer {
+        return getInstance(PhraseStandardizerImpl::class) as PhraseStandardizer
+    }
+
+    /**
+     * @return [PhraseUnnecessaryCleaner] instance.
+     */
+    private fun getPhraseUnnecessaryCleaner(): PhraseUnnecessaryCleaner {
+        return getInstance(
+            PhraseUnnecessaryCleaner::class,
+            TemplateExpressionToRegexMapper()
+        ) as PhraseUnnecessaryCleaner
     }
 }

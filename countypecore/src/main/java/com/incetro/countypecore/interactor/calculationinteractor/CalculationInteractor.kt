@@ -5,7 +5,6 @@
 
 package com.incetro.countypecore.interactor.calculationinteractor
 
-import android.content.res.Resources
 import com.incetro.countypecore.model.returnablevalue.FormattedValue
 
 /**

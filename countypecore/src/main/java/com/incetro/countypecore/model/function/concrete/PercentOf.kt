@@ -10,7 +10,6 @@ import com.incetro.countypecore.model.function.ArgumentType.NUMBER
 import com.incetro.countypecore.model.function.ArgumentType.PERCENTAGE
 import com.incetro.countypecore.model.function.Function
 import com.incetro.countypecore.model.returnablevalue.FormattedDouble
-import com.incetro.countypecore.model.returnablevalue.FormattedPair
 import com.incetro.countypecore.model.returnablevalue.FormattedValue
 
 /**

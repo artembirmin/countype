@@ -28,8 +28,8 @@ internal class LexemesParserImpl : LexemesParser {
     fun getSeparators(template: String): List<String> {
         val keywordTemplateRegex = keywordTemplateRegexString.toRegex()
         return template.split(keywordTemplateRegex)
-                // Отфильтровали пустые строки, которые есть в начале в конце фраз
-                .filter { it.isNotEmpty() }
+            // Отфильтровали пустые строки, которые есть в начале в конце фраз
+            .filter { it.isNotEmpty() }
     }
 
     /**
@@ -47,8 +47,8 @@ internal class LexemesParserImpl : LexemesParser {
             // сплитить по разделителю и передавать самой себе последний элемент массива
         }
         return lexemes
-                .filter { it.isNotEmpty() }
-                .toMutableList()
+            .filter { it.isNotEmpty() }
+            .toMutableList()
     }
 
     /**
@@ -105,9 +105,9 @@ internal class LexemesParserImpl : LexemesParser {
             }
             if (lowerLimit <= upperLimit) {
                 leadingList[lowerLimit] = leadingList[upperLimit]
-                        .also { leadingList[upperLimit] = leadingList[lowerLimit] }
+                    .also { leadingList[upperLimit] = leadingList[lowerLimit] }
                 slaveList[lowerLimit] = slaveList[upperLimit]
-                        .also { slaveList[upperLimit] = slaveList[lowerLimit] }
+                    .also { slaveList[upperLimit] = slaveList[lowerLimit] }
                 lowerLimit++
                 upperLimit--
             }

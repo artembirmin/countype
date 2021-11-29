@@ -7,7 +7,7 @@ package com.incetro.countypecore.core
 
 import com.incetro.countypecore.BaseTest
 import org.junit.Assert.assertEquals
-import org.junit.jupiter.api.Test
+import org.junit.Test
 
 internal class LexemesParserImplTest : BaseTest() {
 

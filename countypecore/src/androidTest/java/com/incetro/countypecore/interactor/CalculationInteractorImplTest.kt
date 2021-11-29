@@ -92,8 +92,8 @@ internal class CalculationInteractorImplTest : BaseTest() {
 
     @Test
     fun calculatePercentOf() {
-        assertEquals("1%", mainInteractor.calculate("10 процентов от 10").toString())
-        assertEquals("1%", mainInteractor.calculate("10% от 10").toString())
-        assertEquals("1%", mainInteractor.calculate("10 % от 10").toString())
+        assertEquals("1", mainInteractor.calculate("10 процентов от 10").toString())
+        assertEquals("1", mainInteractor.calculate("10% от 10").toString())
+        assertEquals("1", mainInteractor.calculate("10 % от 10").toString())
     }
 }

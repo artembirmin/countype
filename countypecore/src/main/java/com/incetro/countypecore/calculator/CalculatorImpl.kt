@@ -1,7 +1,6 @@
 package com.incetro.countypecore.calculator
 
 import android.content.res.Resources
-import com.incetro.countypecore.R
 import com.incetro.countypecore.di.RecognitionInteractorFactory
 import com.incetro.countypecore.interactor.calculationinteractor.CalculationInteractor
 
