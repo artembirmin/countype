@@ -1,4 +1,4 @@
-package com.incetro.countype.recordslist.view.adapter
+package com.incetro.countype.presentation.recordslist.view.adapter
 
 import android.util.Log
 import android.view.KeyEvent
@@ -11,9 +11,9 @@ import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.incetro.countype.R
 import com.incetro.countype.model.Record
-import com.incetro.countype.recordslist.view.custom.PhraseInputEditText
-import com.incetro.countype.recordslist.view.getMaxWidhtOfCountOfSymbols
-import com.incetro.countype.recordslist.view.getWidhtForTextView
+import com.incetro.countype.presentation.recordslist.view.custom.PhraseInputEditText
+import com.incetro.countype.presentation.recordslist.view.getMaxWidhtOfCountOfSymbols
+import com.incetro.countype.presentation.recordslist.view.getWidhtForTextView
 
 typealias OnEnterKeyClick = (
     itemPosition: Int,

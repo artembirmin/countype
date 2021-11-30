@@ -15,7 +15,7 @@ import com.incetro.countypecore.core.LexemesParser
 import com.incetro.countypecore.data.repository.function.FunctionRepository
 import com.incetro.countypecore.data.repository.functiondescription.FunctionDescriptionRepository
 import com.incetro.countypecore.data.repository.measure.MeasureRepository
-import com.incetro.countypecore.calculator.interactor.PhraseUnnecessaryCleaner
+import com.incetro.countypecore.calculator.interactor.phraseunnecessarycleaner.PhraseUnnecessaryCleaner
 import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizer
 import com.incetro.countypecore.model.function.ArgumentType
 import com.incetro.countypecore.model.function.ArgumentType.*

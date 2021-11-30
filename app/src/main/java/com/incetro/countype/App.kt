@@ -5,7 +5,7 @@ import com.incetro.countype.di.app.AppComponent
 import com.incetro.countype.di.app.AppModule
 import com.incetro.countype.di.app.DaggerAppComponent
 
-class Countype : Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()

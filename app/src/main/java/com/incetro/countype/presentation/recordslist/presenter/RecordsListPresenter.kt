@@ -1,6 +1,6 @@
-package com.incetro.countype.recordslist.presenter
+package com.incetro.countype.presentation.recordslist.presenter
 
-import com.incetro.countype.recordslist.view.RecordsListView
+import com.incetro.countype.presentation.recordslist.view.RecordsListView
 
 interface RecordsListPresenter {
 

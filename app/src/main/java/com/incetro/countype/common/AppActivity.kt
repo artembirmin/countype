@@ -3,7 +3,7 @@ package com.incetro.countype.common
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.incetro.countype.Countype
+import com.incetro.countype.App
 import com.incetro.countype.R
 import com.incetro.countype.di.app.activity.ActivityComponent
 import com.incetro.countype.di.app.activity.DaggerActivityComponent
@@ -33,7 +33,7 @@ class AppActivity : AppCompatActivity() {
 
     private fun inject() {
         activityComponent = DaggerActivityComponent.builder()
-            .appComponent(Countype.appComponent) //KOLKHOZ
+            .appComponent(App.appComponent) //KOLKHOZ
             .build()
         activityComponent.inject(this)
     }

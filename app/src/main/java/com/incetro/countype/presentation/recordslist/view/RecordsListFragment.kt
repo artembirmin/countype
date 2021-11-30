@@ -1,4 +1,4 @@
-package com.incetro.countype.recordslist.view
+package com.incetro.countype.presentation.recordslist.view
 
 import android.content.Context
 import android.os.Bundle
@@ -20,8 +20,8 @@ import com.incetro.countype.R
 import com.incetro.countype.common.AppActivity
 import com.incetro.countype.di.recordslist.DaggerRecordsListComponent
 import com.incetro.countype.model.Record
-import com.incetro.countype.recordslist.presenter.RecordsListPresenter
-import com.incetro.countype.recordslist.view.adapter.PhrasesListAdapter
+import com.incetro.countype.presentation.recordslist.presenter.RecordsListPresenter
+import com.incetro.countype.presentation.recordslist.view.adapter.PhrasesListAdapter
 import java.util.*
 import javax.inject.Inject
 

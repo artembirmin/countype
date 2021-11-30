@@ -2,7 +2,7 @@ package com.incetro.countype.di.recordslist
 
 import com.incetro.countype.di.app.activity.ActivityComponent
 import com.incetro.countype.di.common.scope.PerFeature
-import com.incetro.countype.recordslist.view.RecordsListFragment
+import com.incetro.countype.presentation.recordslist.view.RecordsListFragment
 import dagger.Component
 
 @PerFeature

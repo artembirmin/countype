@@ -7,11 +7,12 @@ package com.incetro.countypecore.di
 
 import android.content.res.Resources
 import com.incetro.countypecore.data.repository.functiondescription.factory.TemplateExpressionToRegexMapper
-import com.incetro.countypecore.calculator.interactor.PhraseUnnecessaryCleaner
+import com.incetro.countypecore.calculator.interactor.phraseunnecessarycleaner.PhraseUnnecessaryCleaner
 import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractor
 import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractorImpl
 import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizer
 import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizerImpl
+import com.incetro.countypecore.calculator.interactor.phraseunnecessarycleaner.PhraseUnnecessaryCleanerImpl
 
 /**
  * [CalculationInteractor] factory.
@@ -45,7 +46,7 @@ internal object RecognitionInteractorFactory : DiFactory() {
      */
     private fun getPhraseUnnecessaryCleaner(): PhraseUnnecessaryCleaner {
         return getInstance(
-            PhraseUnnecessaryCleaner::class,
+            PhraseUnnecessaryCleanerImpl::class,
             TemplateExpressionToRegexMapper()
         ) as PhraseUnnecessaryCleaner
     }
