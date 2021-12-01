@@ -7,6 +7,7 @@ internal class PhraseUnnecessaryCleanerImpl(
     private val templateExpressionToRegexMapper: TemplateExpressionToRegexMapper =
         TemplateExpressionToRegexMapper()
 ) : PhraseUnnecessaryCleaner {
+
     override fun createCleanedPhrase(phrase: String, template: Template): String {
         val regex = templateExpressionToRegexMapper.map(template.expression)
         return regex.find(phrase)?.value

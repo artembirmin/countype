@@ -16,7 +16,7 @@ internal class LexemesParserImplTest : BaseTest() {
         dataForTest.phraseToLexemes.forEach { (phrase, lexemes) ->
             assertEquals(
                 lexemes,
-                lexemesParserImpl.getLexems(
+                lexemesParserImpl.getLexemes(
                     phraseStandardizer.createStandardizedPhrase(phrase),
                     dataForTest.phrasesToTemplate[phrase]!!
                 )

@@ -39,9 +39,9 @@ internal class CalculationInteractorImpl(
         val standardizedPhrase = phrase.standardized()
         val (template: Template, functionId: String) = functionDescriptionRepository
             .findTemplateAndFunctionIdByPhrase(standardizedPhrase)
-        val cleanedPhrase = standardizedPhrase.cleaned(template)
         val function = functionRepository.findFunctionById(functionId)
-        val lexemes = lexemesParser.getLexems(cleanedPhrase, template)
+        val cleanedPhrase = standardizedPhrase.cleaned(template)
+        val lexemes = lexemesParser.getLexemes(cleanedPhrase, template)
         val args = getDefinedArgsTypes(lexemes, function.argumentTypes)
         return function(args)
     }

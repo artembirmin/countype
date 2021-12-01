@@ -14,5 +14,5 @@ interface LexemesParser {
     /**
      * Достает лексемы из [phrase] по [template]. Возвращает список лексем в виде [String].
      */
-    fun getLexems(phrase: String, template: Template): List<String>
+    fun getLexemes(phrase: String, template: Template): List<String>
 }

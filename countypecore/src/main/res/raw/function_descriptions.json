@@ -1,7 +1,7 @@
 {
   "unitRelated": [
     {
-      "id": "unitToUnit",
+      "functionId": "unitToUnit",
       "templates": [
         {
           "expression": "__number __unit в __unit",
@@ -24,7 +24,7 @@
   ],
   "percentage": [
     {
-      "id": "percentOf",
+      "functionId": "percentOf",
       "templates": [
         {
           "expression": "__percentage от __number",

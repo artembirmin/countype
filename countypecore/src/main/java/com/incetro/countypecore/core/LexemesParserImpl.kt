@@ -15,7 +15,7 @@ internal class LexemesParserImpl : LexemesParser {
      */
     private val keywordTemplateRegexString = "__[a-z]+"
 
-    override fun getLexems(phrase: String, template: Template): List<String> {
+    override fun getLexemes(phrase: String, template: Template): List<String> {
         val separators = getSeparators(template.expression)
         val lexemes = getLexemsBySeparators(phrase, separators)
         return getSortedTokens(lexemes, template.argumentsOrder)
