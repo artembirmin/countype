@@ -8,7 +8,7 @@ package com.incetro.countypecore.common
 /**
  * Константы ключевых слов в [com.incetro.countypecore.model.function.Template.expression].
  */
-object KeywordsConstants {
+object KeywordConstants {
     const val UNIT_TEMPLATE = "__unit"
 
     const val UNIT_REGEX_STRING = """[\w\s]+"""

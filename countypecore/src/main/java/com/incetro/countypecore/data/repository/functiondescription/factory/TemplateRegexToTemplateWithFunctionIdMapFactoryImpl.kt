@@ -22,7 +22,7 @@ internal class TemplateRegexToTemplateWithFunctionIdMapFactoryImpl(
                 .templates
                 .forEach { template ->
                     regexToTemplateWithFunctionId[templateExpressionToRegexMapper.map(template.expression)] =
-                        TemplateWithFunctionIdResult(template, functionDescription.id)
+                        TemplateWithFunctionIdResult(template, functionDescription.functionId)
                 }
         }
         return regexToTemplateWithFunctionId

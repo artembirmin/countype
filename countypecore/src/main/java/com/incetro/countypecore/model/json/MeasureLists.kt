@@ -5,7 +5,7 @@
 
 package com.incetro.countypecore.model.json
 
-import com.incetro.countypecore.model.measure.Measure
+import com.incetro.countypecore.model.function.argumentobject.Measure
 
 /**
  * Model for decerialization from JSON file containing [Measure].

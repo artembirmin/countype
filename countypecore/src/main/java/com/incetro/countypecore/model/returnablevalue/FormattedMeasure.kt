@@ -5,7 +5,7 @@
 
 package com.incetro.countypecore.model.returnablevalue
 
-import com.incetro.countypecore.model.measure.Measure
+import com.incetro.countypecore.model.function.argumentobject.Measure
 
 class FormattedMeasure(private val measure: Measure) : FormattedValue {
     override fun toString(): String {

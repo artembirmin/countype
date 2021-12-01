@@ -3,7 +3,7 @@
  * Copyright © 2021 Incetro Inc. All rights reserved.
  */
 
-package com.incetro.countypecore.model.measure
+package com.incetro.countypecore.model.function.argumentobject
 
 /**
  * Measure (Unit).

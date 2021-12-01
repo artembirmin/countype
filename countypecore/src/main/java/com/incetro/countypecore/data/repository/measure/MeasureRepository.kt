@@ -5,7 +5,7 @@
 
 package com.incetro.countypecore.data.repository.measure
 
-import com.incetro.countypecore.model.measure.Measure
+import com.incetro.countypecore.model.function.argumentobject.Measure
 
 /**
  * Репозиторий для работы с [Measure].

@@ -19,7 +19,7 @@ import com.incetro.countypecore.model.function.ArgumentType
 import com.incetro.countypecore.model.function.ArgumentType.NUMBER
 import com.incetro.countypecore.model.function.ArgumentType.UNIT
 import com.incetro.countypecore.model.function.Function
-import com.incetro.countypecore.model.measure.Measure
+import com.incetro.countypecore.model.function.argumentobject.Measure
 import com.incetro.countypecore.model.returnablevalue.FormattedDouble
 import com.incetro.countypecore.model.returnablevalue.FormattedMeasure
 import com.incetro.countypecore.model.returnablevalue.FormattedPair

@@ -12,7 +12,7 @@ data class FunctionDescription(
     /**
      * Идентификатор описываемой функции.
      */
-    val id: String,
+    val functionId: String,
     /**
      * Список [Template], описывающий фразы, которые вычислимы функцией.
      */

@@ -10,7 +10,7 @@
 
 package com.incetro.countypecore.data.repository.functiondescription.factory
 
-import com.incetro.countypecore.common.KeywordsConstants
+import com.incetro.countypecore.common.KeywordConstants
 import com.incetro.countypecore.model.function.functiondescription.Template
 
 /**
@@ -18,12 +18,12 @@ import com.incetro.countypecore.model.function.functiondescription.Template
  */
 internal class TemplateExpressionToRegexMapper {
     /**
-     * Отображает [KeywordsConstants] в паттерны регулярных выражений.
+     * Отображает [KeywordConstants] в паттерны регулярных выражений.
      */
     private val keywordToRegexStringMap: Map<String, String> = mapOf(
-        KeywordsConstants.UNIT_TEMPLATE to KeywordsConstants.UNIT_REGEX_STRING,
-        KeywordsConstants.NUMBER_TEMPLATE to KeywordsConstants.NUMBER_REGEX_STRING,
-        KeywordsConstants.PERCENTAGE_TEMPLATE to KeywordsConstants.PERCENTAGE_REGEX_STRING
+        KeywordConstants.UNIT_TEMPLATE to KeywordConstants.UNIT_REGEX_STRING,
+        KeywordConstants.NUMBER_TEMPLATE to KeywordConstants.NUMBER_REGEX_STRING,
+        KeywordConstants.PERCENTAGE_TEMPLATE to KeywordConstants.PERCENTAGE_REGEX_STRING
     )
 
     /**

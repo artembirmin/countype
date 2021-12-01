@@ -9,7 +9,7 @@ import com.incetro.countypecore.R
 import com.incetro.countypecore.data.file.JsonFileReader
 import com.incetro.countypecore.model.function.functiondescription.FunctionDescription
 import com.incetro.countypecore.model.json.MeasureLists
-import com.incetro.countypecore.model.measure.Measure
+import com.incetro.countypecore.model.function.argumentobject.Measure
 
 internal class MeasureRepositoryImpl(private val jsonFileReader: JsonFileReader) :
     MeasureRepository {

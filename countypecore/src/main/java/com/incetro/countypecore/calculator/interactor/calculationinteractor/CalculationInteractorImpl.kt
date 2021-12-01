@@ -10,7 +10,7 @@
 
 package com.incetro.countypecore.calculator.interactor.calculationinteractor
 
-import com.incetro.countypecore.common.KeywordsConstants
+import com.incetro.countypecore.common.KeywordConstants
 import com.incetro.countypecore.core.LexemesParser
 import com.incetro.countypecore.data.repository.function.FunctionRepository
 import com.incetro.countypecore.data.repository.functiondescription.FunctionDescriptionRepository
@@ -46,11 +46,11 @@ internal class CalculationInteractorImpl(
         return function(args)
     }
 
-    private fun String.cleaned(template: Template): String =
-        phraseUnnecessaryCleaner.createCleanedPhrase(this, template)
-
     private fun String.standardized(): String =
         phraseStandardizer.createStandardizedPhrase(this)
+
+    private fun String.cleaned(template: Template): String =
+        phraseUnnecessaryCleaner.createCleanedPhrase(this, template)
 
 
     /**
@@ -85,8 +85,8 @@ internal class CalculationInteractorImpl(
      * @return null, если лексема не является процентом
      */
     private fun lexemeToPercentage(lexeme: String): Double? {
-        val percentageRegex = Regex(KeywordsConstants.PERCENTAGE_REGEX_STRING)
-        val digitRegex = Regex(KeywordsConstants.NUMBER_REGEX_STRING)
+        val percentageRegex = Regex(KeywordConstants.PERCENTAGE_REGEX_STRING)
+        val digitRegex = Regex(KeywordConstants.NUMBER_REGEX_STRING)
         return if (lexeme.matches(percentageRegex)) {
             digitRegex.find(lexeme)?.value?.toDoubleOrNull()
         } else null
