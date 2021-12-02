@@ -21,5 +21,6 @@ interface FunctionRepository {
     /**
      * Добавляет экземпляр [Function].
      */
+    // в курсовой об этом методе не сказано
     fun add(function: Function)
 }

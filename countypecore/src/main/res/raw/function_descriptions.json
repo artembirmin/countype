@@ -35,5 +35,30 @@
         }
       ]
     }
+  ],
+  "notCalculating" : [
+    {
+      "functionId": "formatNumberAndUnit",
+      "templates": [
+        {
+          "expression": "__number __unit",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "formatNumber",
+      "templates": [
+        {
+          "expression": "__number",
+          "argumentsOrder": [
+            1
+          ]
+        }
+      ]
+    }
   ]
 }

@@ -20,6 +20,11 @@ interface FunctionDescriptionRepository {
     fun add(functionDescription: FunctionDescription)
 
     /**
+     * Добавляет все экземпляры [FunctionDescription] из коллекции.
+     */
+    fun addAll(functionDescriptions: Collection<FunctionDescription>)
+
+    /**
      * Ищет [com.incetro.countypecore.model.function.functiondescription.Template] и [Function.id]
      * осуществляя сопоставление [phrase] шаблону функции из [FunctionDescription.templates].
      *
@@ -29,9 +34,4 @@ interface FunctionDescriptionRepository {
      * @throws IllegalArgumentException if template for [phrase] not found.
      */
     fun findTemplateAndFunctionIdByPhrase(phrase: String): TemplateWithFunctionIdResult
-
-    /**
-     * Добавляет все экземпляры [FunctionDescription] из коллекции.
-     */
-    fun addAll(functionDescriptions: Collection<FunctionDescription>)
 }

@@ -38,7 +38,7 @@ internal class LexemesParserImplTest : BaseTest() {
             phrases.map { phraseStandardizer.createStandardizedPhrase(it) }.forEach { phrase ->
                 assertEquals(
                     phraseToLexemes[phrase],
-                    lexemesParserImpl.getLexemsBySeparators(
+                    lexemesParserImpl.getLexemesBySeparators(
                         phrase, lexemesParserImpl.getSeparators(template.expression)
                     )
                 )

@@ -12,12 +12,13 @@ import com.incetro.countypecore.model.function.functiondescription.FunctionDescr
  */
 data class FunctionDescriptionsLists(
     val unitRelated: List<FunctionDescription>,
-    val percentage: List<FunctionDescription>
+    val percentage: List<FunctionDescription>,
+    val notCalculating: List<FunctionDescription>
 ) {
     /**
      * Flatten all lists in model.
      */
     fun flatten(): List<FunctionDescription> {
-        return unitRelated + percentage
+        return unitRelated + percentage + notCalculating
     }
 }

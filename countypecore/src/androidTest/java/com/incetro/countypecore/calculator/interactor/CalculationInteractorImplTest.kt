@@ -88,6 +88,12 @@ internal class CalculationInteractorImplTest : BaseTest() {
             "5см",
             mainInteractor.calculate("сколько сантиметров в 5 сантиметрах").toString()
         )
+
+            // С мусором
+        assertEquals(
+            "5м",
+            mainInteractor.calculate("я прошел 5 метров в метрах").toString()
+        )
     }
 
     @Test

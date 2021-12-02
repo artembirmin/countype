@@ -11,6 +11,7 @@ import com.incetro.countypecore.model.function.functiondescription.Template
 /**
  * Возвращаемое значение метода [FunctionDescriptionRepository.findTemplateAndFunctionIdByPhrase].
  */
+// Можно сделать typealias
 class TemplateWithFunctionIdResult(
     /**
      * Один из шаблонов [FunctionDescription.templates].

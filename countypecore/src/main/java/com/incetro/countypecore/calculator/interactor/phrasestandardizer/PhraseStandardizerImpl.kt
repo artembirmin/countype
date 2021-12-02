@@ -46,9 +46,9 @@ internal class PhraseStandardizerImpl : PhraseStandardizer {
     )
 
     override fun createStandardizedPhrase(phrase: String): String {
-        var standardPhrase = phrase
+        var standardPhrase = phrase.lowercase()
         replaceableRegexWithContextToRegex.forEach { (regexWithContext, regex) ->
-            if (phrase.contains(regexWithContext)) {
+            if (standardPhrase.contains(regexWithContext)) {
                 val replacement = regexToReplacement[regex]
                 replacement?.let {
                     standardPhrase = standardPhrase.replace(regex, replacement)

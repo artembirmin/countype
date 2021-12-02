@@ -17,7 +17,7 @@ internal class LexemesParserImpl : LexemesParser {
 
     override fun getLexemes(phrase: String, template: Template): List<String> {
         val separators = getSeparators(template.expression)
-        val lexemes = getLexemsBySeparators(phrase, separators)
+        val lexemes = getLexemesBySeparators(phrase, separators)
         return getSortedTokens(lexemes, template.argumentsOrder)
     }
 
@@ -36,7 +36,7 @@ internal class LexemesParserImpl : LexemesParser {
      * Достает лексемы из [phrase], используя [separatorsFromTemplate],
      * полученные из шаблона, которому соответствует фраза.
      */
-    fun getLexemsBySeparators(
+    fun getLexemesBySeparators(
         phrase: String,
         separatorsFromTemplate: List<String>
     ): MutableList<String> {

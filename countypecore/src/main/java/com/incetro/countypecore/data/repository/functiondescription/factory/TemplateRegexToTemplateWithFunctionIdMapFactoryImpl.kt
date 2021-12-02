@@ -10,8 +10,7 @@ import com.incetro.countypecore.model.function.functiondescription.FunctionDescr
 
 internal class TemplateRegexToTemplateWithFunctionIdMapFactoryImpl(
     private val templateExpressionToRegexMapper: TemplateExpressionToRegexMapper
-) :
-    TemplateRegexToTemplateWithFunctionIdMapFactory {
+) : TemplateRegexToTemplateWithFunctionIdMapFactory {
 
     override fun getMap(functionDescriptions: List<FunctionDescription>):
             Map<Regex, TemplateWithFunctionIdResult> {
