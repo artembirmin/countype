@@ -30,5 +30,5 @@ internal open class BaseTest {
     val unitRepository = RepositoriesFactory.getMeasureRepository(resources)
 
     val mainInteractor =
-        RecognitionInteractorFactory.getRecognitionInteractor(resources) as CalculationInteractorImpl
+        RecognitionInteractorFactory.getCalculationInteractor(resources) as CalculationInteractorImpl
 }

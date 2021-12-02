@@ -1,9 +1,4 @@
 /*
- * Created by Artem Petrosyan on 21/10/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
- */
-
-/*
  * Created by Artem Petrosyan on 14/10/2021.
  * Copyright © 2021 Incetro Inc. All rights reserved.
  */

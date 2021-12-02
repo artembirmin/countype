@@ -7,7 +7,7 @@ import com.incetro.countypecore.calculator.interactor.calculationinteractor.Calc
 class CalculatorImpl(
     private val resources: Resources,
     private val recognitionInteractor: CalculationInteractor =
-        RecognitionInteractorFactory.getRecognitionInteractor(resources)
+        RecognitionInteractorFactory.getCalculationInteractor(resources)
 ) : Calculator {
 
     override fun calculateOrException(phrase: String): String {

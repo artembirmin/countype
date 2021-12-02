@@ -63,7 +63,8 @@ internal object RepositoriesFactory : DiFactory() {
     /**
      * @return [getTemplateRegexToTemplateWithFunctionIdMapFactory] instance.
      */
-    private fun getTemplateRegexToTemplateWithFunctionIdMapFactory(): TemplateRegexToTemplateWithFunctionIdMapFactory {
+    private fun getTemplateRegexToTemplateWithFunctionIdMapFactory():
+            TemplateRegexToTemplateWithFunctionIdMapFactory {
         return getInstance(
             clazz = TemplateRegexToTemplateWithFunctionIdMapFactoryImpl::class,
             TemplateExpressionToRegexMapper()
