@@ -1,13 +1,13 @@
 package com.incetro.countypecore.calculator
 
 import android.content.res.Resources
-import com.incetro.countypecore.di.CalculationInteractorFactory
+import com.incetro.countypecore.di.CalculatorFactory
 import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractor
 
 class CalculatorImpl(
     private val resources: Resources,
     private val recognitionInteractor: CalculationInteractor =
-        CalculationInteractorFactory.getCalculationInteractor(resources)
+        CalculatorFactory.getCalculationInteractor(resources)
 ) : Calculator {
 
     override fun calculateOrException(phrase: String): String {

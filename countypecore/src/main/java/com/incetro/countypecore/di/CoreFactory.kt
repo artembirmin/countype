@@ -11,7 +11,7 @@ import com.incetro.countypecore.core.LexemesParserImpl
 /**
  * [LexemesParser] factory.
  */
-internal object LexemesParserFactory : DiFactory() {
+internal object CoreFactory : DiFactory() {
 
     /**
      * @return [LexemesParser] instance.
