@@ -10,7 +10,7 @@ import com.incetro.countypecore.core.LexemesParserImpl
 import com.incetro.countypecore.data.repository.function.FunctionRepositoryImpl
 import com.incetro.countypecore.di.LexemesParserFactory
 import com.incetro.countypecore.di.PhraseStandardizerFactory
-import com.incetro.countypecore.di.RecognitionInteractorFactory
+import com.incetro.countypecore.di.CalculationInteractorFactory
 import com.incetro.countypecore.di.RepositoriesFactory
 import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractorImpl
 
@@ -30,5 +30,5 @@ internal open class BaseTest {
     val unitRepository = RepositoriesFactory.getMeasureRepository(resources)
 
     val mainInteractor =
-        RecognitionInteractorFactory.getCalculationInteractor(resources) as CalculationInteractorImpl
+        CalculationInteractorFactory.getCalculationInteractor(resources) as CalculationInteractorImpl
 }
