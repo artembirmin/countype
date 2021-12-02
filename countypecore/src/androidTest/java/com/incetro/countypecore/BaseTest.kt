@@ -9,7 +9,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.incetro.countypecore.core.LexemesParserImpl
 import com.incetro.countypecore.data.repository.function.FunctionRepositoryImpl
 import com.incetro.countypecore.di.CoreFactory
-import com.incetro.countypecore.di.CalculatorFactory
+import com.incetro.countypecore.di.InteractorFactory
 import com.incetro.countypecore.di.RepositoriesFactory
 import com.incetro.countypecore.calculator.interactor.calculationinteractor.CalculationInteractorImpl
 
@@ -17,7 +17,7 @@ internal open class BaseTest {
 
     private val resources = InstrumentationRegistry.getInstrumentation().targetContext.resources
 
-    val phraseStandardizer = CalculatorFactory  .getPhraseStandardizer()
+    val phraseStandardizer = InteractorFactory  .getPhraseStandardizer()
 
     val lexemesParserImpl = CoreFactory.getLexemesParser() as LexemesParserImpl
 
@@ -29,5 +29,5 @@ internal open class BaseTest {
     val unitRepository = RepositoriesFactory.getMeasureRepository(resources)
 
     val mainInteractor =
-        CalculatorFactory.getCalculationInteractor(resources) as CalculationInteractorImpl
+        InteractorFactory.getCalculationInteractor(resources) as CalculationInteractorImpl
 }

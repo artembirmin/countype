@@ -17,7 +17,7 @@ import com.incetro.countypecore.data.repository.functiondescription.factory.Temp
 /**
  * [CalculationInteractor] factory.
  */
-internal object CalculatorFactory : DiFactory() {
+internal object InteractorFactory : DiFactory() {
     /**
      * @return [CalculationInteractor] instance.
      */
