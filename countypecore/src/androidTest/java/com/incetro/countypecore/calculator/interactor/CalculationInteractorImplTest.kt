@@ -6,8 +6,8 @@
 package com.incetro.countypecore.calculator.interactor
 
 import com.incetro.countypecore.BaseTest
-import com.incetro.countypecore.model.function.concrete.PercentOf
-import com.incetro.countypecore.model.function.concrete.UnitToUnit
+import com.incetro.countypecore.model.function.concrete.percentage.PercentOf
+import com.incetro.countypecore.model.function.concrete.unitrelated.UnitToUnit
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -101,5 +101,17 @@ internal class CalculationInteractorImplTest : BaseTest() {
         assertEquals("1", mainInteractor.calculate("10 процентов от 10").toString())
         assertEquals("1", mainInteractor.calculate("10% от 10").toString())
         assertEquals("1", mainInteractor.calculate("10 % от 10").toString())
+    }
+
+    @Test
+    fun calculateFormatNumber(){
+        assertEquals("1", mainInteractor.calculate("1").toString())
+        assertEquals("1313", mainInteractor.calculate("1313").toString())
+    }
+
+    @Test
+    fun calculateFormatNumberAndMeasure(){
+        assertEquals("1м", mainInteractor.calculate("1 метр").toString())
+        assertEquals("1313м", mainInteractor.calculate("1313 метров").toString())
     }
 }

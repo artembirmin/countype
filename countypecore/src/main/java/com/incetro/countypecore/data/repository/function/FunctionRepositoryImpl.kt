@@ -6,8 +6,8 @@
 package com.incetro.countypecore.data.repository.function
 
 import com.incetro.countypecore.model.function.Function
-import com.incetro.countypecore.model.function.concrete.PercentOf
-import com.incetro.countypecore.model.function.concrete.UnitToUnit
+import com.incetro.countypecore.model.function.concrete.percentage.PercentOf
+import com.incetro.countypecore.model.function.concrete.unitrelated.UnitToUnit
 import com.incetro.countypecore.model.function.concrete.notcalculating.FormatNumber
 import com.incetro.countypecore.model.function.concrete.notcalculating.FormatNumberAndMeasure
 
