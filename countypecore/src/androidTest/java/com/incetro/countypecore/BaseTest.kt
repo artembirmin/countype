@@ -6,7 +6,7 @@
 package com.incetro.countypecore
 
 import androidx.test.platform.app.InstrumentationRegistry
-import com.incetro.countypecore.core.LexemesParserImpl
+import com.incetro.countypecore.core.lexemesparser.LexemesParserImpl
 import com.incetro.countypecore.data.repository.function.FunctionRepositoryImpl
 import com.incetro.countypecore.di.CoreFactory
 import com.incetro.countypecore.di.InteractorFactory
@@ -17,7 +17,7 @@ internal open class BaseTest {
 
     private val resources = InstrumentationRegistry.getInstrumentation().targetContext.resources
 
-    val phraseStandardizer = InteractorFactory  .getPhraseStandardizer()
+    val phraseStandardizer = CoreFactory.getPhraseStandardizer()
 
     val lexemesParserImpl = CoreFactory.getLexemesParser() as LexemesParserImpl
 

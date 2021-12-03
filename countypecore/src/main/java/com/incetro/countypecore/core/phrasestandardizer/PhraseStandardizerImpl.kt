@@ -8,7 +8,7 @@
  * Copyright © 2021 Incetro Inc. All rights reserved.
  */
 
-package com.incetro.countypecore.calculator.interactor.phrasestandardizer
+package com.incetro.countypecore.core.phrasestandardizer
 
 internal class PhraseStandardizerImpl : PhraseStandardizer {
 

@@ -11,12 +11,12 @@
 package com.incetro.countypecore.calculator.interactor.calculationinteractor
 
 import com.incetro.countypecore.common.KeywordConstants
-import com.incetro.countypecore.core.LexemesParser
+import com.incetro.countypecore.core.lexemesparser.LexemesParser
 import com.incetro.countypecore.data.repository.function.FunctionRepository
 import com.incetro.countypecore.data.repository.functiondescription.FunctionDescriptionRepository
 import com.incetro.countypecore.data.repository.measure.MeasureRepository
-import com.incetro.countypecore.calculator.interactor.phraseunnecessarycleaner.PhraseUnnecessaryCleaner
-import com.incetro.countypecore.calculator.interactor.phrasestandardizer.PhraseStandardizer
+import com.incetro.countypecore.core.phraseunnecessarycleaner.PhraseUnnecessaryCleaner
+import com.incetro.countypecore.core.phrasestandardizer.PhraseStandardizer
 import com.incetro.countypecore.model.function.ArgumentType
 import com.incetro.countypecore.model.function.ArgumentType.*
 import com.incetro.countypecore.model.function.Function
@@ -25,11 +25,11 @@ import com.incetro.countypecore.model.returnablevalue.FormattedValue
 
 internal class CalculationInteractorImpl(
     private val lexemesParser: LexemesParser,
+    private val phraseStandardizer: PhraseStandardizer,
+    private val phraseUnnecessaryCleaner: PhraseUnnecessaryCleaner,
     private val functionRepository: FunctionRepository,
     private val functionDescriptionRepository: FunctionDescriptionRepository,
-    private val measureRepository: MeasureRepository,
-    private val phraseStandardizer: PhraseStandardizer,
-    private val phraseUnnecessaryCleaner: PhraseUnnecessaryCleaner
+    private val measureRepository: MeasureRepository
 ) : CalculationInteractor {
 
     /**
