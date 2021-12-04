@@ -55,7 +55,7 @@ class RecordsListPresenterImpl(
         if (upperItemPosition >= 0) {
             view.requestFocusOnItemByPositionAndShowSoftKeyboard(upperItemPosition)
             view.setItemsCursorToEnd(upperItemPosition)
-            view.appendTextInItemAndSaveCursorPosition(text, upperItemPosition)
+            view.appendPhraseInItem(text, upperItemPosition)
         } else {
             if (text.isNotEmpty()) {
                 return

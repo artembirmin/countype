@@ -128,12 +128,12 @@ class RecordsListFragment : Fragment(), RecordsListView {
         selectionStart?.let { editText.setSelection(it) }
     }
 
-    override fun insertItemToPosition(position: Int, record: Record) {
-        phrasesListAdapter.insertItemToPosition(position, record)
+    override fun insertItemToPosition(itemPosition: Int, record: Record) {
+        phrasesListAdapter.insertItemToPosition(itemPosition, record)
     }
 
-    override fun appendTextInItemAndSaveCursorPosition(text: String, itemPosition: Int) {
-        phrasesListAdapter.appendTextToPhraseExpression(text, itemPosition)
+    override fun appendPhraseInItem(phrase: String, itemPosition: Int) {
+        phrasesListAdapter.appendTextToPhraseExpression(phrase, itemPosition)
     }
 
     override fun updateRowNumberItemsLowerThan(itemPosition: Int, delta: Int) {
@@ -145,20 +145,20 @@ class RecordsListFragment : Fragment(), RecordsListView {
         getPhraseViewHolder(itemPosition)?.answerTextView?.text = answer
     }
 
-    override fun setPhraseInItem(text: String, itemPosition: Int) {
-        phrasesListAdapter.updatePhraseExpression(itemPosition, text)
+    override fun setPhraseInItem(phrase: String, itemPosition: Int) {
+        phrasesListAdapter.updatePhraseExpression(itemPosition, phrase)
     }
 
     override fun removeItemAtPosition(itemPosition: Int) {
         phrasesListAdapter.removeItemAt(itemPosition)
     }
 
-    override fun scrollRecyclerToPosition(position: Int) {
+    override fun scrollRecyclerToPosition(itemPosition: Int) {
         val lastCompletelyVisibleItemPosition =
             (recyclerView.layoutManager as LinearLayoutManager)
                 .findLastCompletelyVisibleItemPosition()
-        if (lastCompletelyVisibleItemPosition < position) {
-            recyclerView.scrollToPosition(position)
+        if (lastCompletelyVisibleItemPosition < itemPosition) {
+            recyclerView.scrollToPosition(itemPosition)
         }
     }
 
