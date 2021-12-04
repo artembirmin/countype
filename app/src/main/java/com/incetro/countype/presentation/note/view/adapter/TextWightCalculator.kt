@@ -1,4 +1,4 @@
-package com.incetro.countype.presentation.recordslist.view
+package com.incetro.countype.presentation.note.view
 
 import android.graphics.Paint
 import android.graphics.Rect

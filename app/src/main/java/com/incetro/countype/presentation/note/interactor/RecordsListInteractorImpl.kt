@@ -1,4 +1,4 @@
-package com.incetro.countype.presentation.recordslist.interactor
+package com.incetro.countype.presentation.note.interactor
 
 import com.incetro.countypecore.calculator.Calculator
 

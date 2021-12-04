@@ -1,9 +1,9 @@
-package com.incetro.countype.presentation.recordslist.presenter
+package com.incetro.countype.presentation.note.presenter
 
 import android.os.Looper
 import com.incetro.countype.model.Record
-import com.incetro.countype.presentation.recordslist.interactor.RecordsListInteractor
-import com.incetro.countype.presentation.recordslist.view.RecordsListView
+import com.incetro.countype.presentation.note.interactor.RecordsListInteractor
+import com.incetro.countype.presentation.note.view.RecordsListView
 import java.util.*
 
 class RecordsListPresenterImpl(
