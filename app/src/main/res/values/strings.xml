@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EditTextRecyclerView</string>
+    <string name="app_name">Countype</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
