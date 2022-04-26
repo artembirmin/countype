@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ My Application
+  ~
+  ~ Created by artembirmin on 26/4/2022.
+  -->
+
+<resources>
+
+    <style name="toolbar_title_folder">
+        <item name="android:textSize">
+            20sp
+        </item>
+        <item name="android:textColor">
+            @color/black
+        </item>
+        <item name="fontFamily">
+            @font/roboto_regular
+        </item>
+    </style>
+
+</resources>

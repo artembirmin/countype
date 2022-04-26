@@ -10,12 +10,14 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.incetro.countype.R
+import com.incetro.countype.common.navigation.AppRouter
 import com.incetro.countype.common.navigation.getInitParams
 import com.incetro.countype.common.navigation.saveInitParams
 import com.incetro.countype.common.presentation.base.BaseFragment
@@ -41,6 +43,9 @@ class NoteFragment : BaseFragment<Nothing>(), NoteView {
     @Inject
     lateinit var repository: NoteRepository
 
+    @Inject
+    lateinit var router: AppRouter
+
     private val noteId: String by lazy { getInitParams<NoteFragmentInitParams>().noteId }
 
     private lateinit var recordsListAdapter: RecordsListAdapter
@@ -52,16 +57,31 @@ class NoteFragment : BaseFragment<Nothing>(), NoteView {
     ): View? {
         inject()
         val view = inflater.inflate(R.layout.records_list_recyclerview, container, false)
+        presenter.attachView(this)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.records_list_recyclerview)
         repository.getNote(noteId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 initRecyclerView(it.records)
+                showNoteName(it.name)
             }, {})
 
-        presenter.attachView(this)
-        return view
+    }
+
+    private fun showNoteName(name: String) {
+        requireView().findViewById<Toolbar>(R.id.toolbar)
+            .apply {
+                findViewById<TextView>(R.id.note_screen_toolbar_title)?.text = name
+                setNavigationOnClickListener {
+                    router.exit()
+                }
+            }
     }
 
     override fun onDestroy() {

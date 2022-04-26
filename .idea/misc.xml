@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.234" />
         <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/fragment_calculator.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/layout_container.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/record_item.xml" value="0.33" />
         <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/records_list_recyclerview.xml" value="0.34930777422790205" />
         <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/recycler_view.xml" value="0.2591240875912409" />
         <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/recyclerview_edittext_item.xml" value="0.6" />
+        <entry key="..\:/Users/petra/INCETRO/MyApplication/app/src/main/res/layout/toolbar_note_screen.xml" value="0.38697916666666665" />
       </map>
     </option>
   </component>

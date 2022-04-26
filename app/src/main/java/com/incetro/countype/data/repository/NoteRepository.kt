@@ -1,3 +1,9 @@
+/*
+ * My Application
+ *
+ * Created by artembirmin on 26/4/2022.
+ */
+
 package com.incetro.countype.data.repository
 
 import com.incetro.countype.entity.Note

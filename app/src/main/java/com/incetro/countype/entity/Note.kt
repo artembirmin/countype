@@ -1,3 +1,9 @@
+/*
+ * My Application
+ *
+ * Created by artembirmin on 26/4/2022.
+ */
+
 package com.incetro.countype.entity
 
 import androidx.room.PrimaryKey
