@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class NoteRepositoryImpl @Inject constructor(private val noteDao: NoteDao) : NoteRepository {
 
     override fun saveRecords(noteId: String, records: List<Record>): Completable {
-        return noteDao.updateRecords(noteId, records)
+        return noteDao.updateRecordsAndTime(noteId, records, Date())
     }
 
     override fun getNote(noteId: String): Single<Note> {

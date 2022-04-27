@@ -36,6 +36,15 @@
         </item>
     </style>
 
+    <style name="date_time">
+        <item name="android:textSize">
+            10sp
+        </item>
+        <item name="android:textColor">
+            @color/gray_500
+        </item>
+    </style>
+
     <style name="header_text_style">
         <item name="android:textSize">
             28sp

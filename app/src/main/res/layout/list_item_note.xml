@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="4dp"
+        android:paddingEnd="8dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/rounded_rectangle_8dp"
         android:clickable="true"
@@ -31,7 +32,7 @@
             android:id="@+id/tv_note_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="70dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -54,6 +55,26 @@
             app:layout_constraintStart_toStartOf="@+id/tv_note_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_note_name"
             tools:text="How many something in somethings" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/date_time"
+            app:layout_constraintBottom_toTopOf="@+id/tv_date"
+            app:layout_constraintStart_toStartOf="@+id/tv_date"
+            tools:text="13:13" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:textAppearance="@style/date_time"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_tasks_count"
+            app:layout_constraintStart_toEndOf="@+id/tv_tasks_count"
+            tools:text="29/09/93" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -29,7 +29,11 @@ class NoteListPresenter @Inject constructor(
         repository.observeNotes()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { viewState.showNotes(it.map { note -> note.toNoteViewItem() }) }
+            .subscribe {
+                viewState.showNotes(it.sortedBy { note -> note.lastUpdateTime.time }
+                    .asReversed()
+                    .map { note -> note.toNoteViewItem() })
+            }
             .addDisposable()
     }
 
@@ -49,11 +53,15 @@ class NoteListPresenter @Inject constructor(
         })
     }
 
-    fun Note.toNoteViewItem() = NoteViewItem(this) { note: Note ->
+    private fun Note.toNoteViewItem() = NoteViewItem(this) { note: Note ->
         router.navigateTo(
             Screens.NoteScreen(
                 NoteFragmentInitParams(note.id)
             )
         )
+    }
+
+    override fun onBackPressed() {
+        router.exit()
     }
 }

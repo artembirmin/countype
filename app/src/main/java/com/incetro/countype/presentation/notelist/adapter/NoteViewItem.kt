@@ -12,6 +12,8 @@ import com.incetro.countype.common.presentation.adapter.DataBindingViewHolder
 import com.incetro.countype.common.presentation.adapter.DataBindingViewItem
 import com.incetro.countype.databinding.ListItemNoteBinding
 import com.incetro.countype.entity.Note
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NoteViewItem(
     private val note: Note,
@@ -22,6 +24,10 @@ class NoteViewItem(
     override fun bind(holder: DataBindingViewHolder<ListItemNoteBinding>) {
         holder.binding.note = note
         holder.binding.root.setOnClickListener { onSelectListener(note) }
+        holder.binding.tvTime.text =
+            SimpleDateFormat("HH:mm", Locale.getDefault()).format(note.lastUpdateTime)
+        holder.binding.tvDate.text =
+            SimpleDateFormat("dd/MM/yy", Locale.getDefault()).format(note.lastUpdateTime)
     }
 
     companion object {
