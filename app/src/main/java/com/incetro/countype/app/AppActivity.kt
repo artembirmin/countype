@@ -3,7 +3,7 @@ package com.incetro.countype.app
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.incetro.countype.R
-import com.incetro.countype.common.presentation.base.BaseFragment
+import com.incetro.countype.common.presentation.base.basefragment.BaseFragment
 import com.incetro.countype.di.activity.ActivityComponent
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder

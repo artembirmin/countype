@@ -1,10 +1,10 @@
 /*
- * AndroidArchitectureResearch
+ * My Application
  *
- * Created by artembirmin on 19/2/2022.
+ * Created by artembirmin on 27/4/2022.
  */
 
-package com.incetro.countype.common.presentation.base
+package com.incetro.countype.common.presentation.base.basefragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.incetro.countype.app.AppActivity
+import com.incetro.countype.common.presentation.base.BaseView
 import com.incetro.countype.di.componentmanager.ComponentManager
 import com.incetro.countype.di.componentmanager.ComponentsStore
 import moxy.MvpAppCompatFragment

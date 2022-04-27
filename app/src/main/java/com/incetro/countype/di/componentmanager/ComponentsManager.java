@@ -10,8 +10,8 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 
-import com.incetro.countype.di.app.AppComponent;
 import com.incetro.countype.di.app.DaggerAppComponent;
+import com.incetro.countype.di.app.component.AppComponent;
 import com.incetro.countype.di.app.module.AppModule;
 
 /**

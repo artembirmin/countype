@@ -1,13 +1,14 @@
 /*
- * AndroidArchitectureResearch
+ * My Application
  *
- * Created by artembirmin on 19/2/2022.
+ * Created by artembirmin on 27/4/2022.
  */
 
-package com.incetro.countype.common.presentation.base
+package com.incetro.countype.common.presentation.base.basefragment
 
 
 import androidx.fragment.app.Fragment
+import com.incetro.countype.common.presentation.base.BaseView
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import moxy.MvpPresenter

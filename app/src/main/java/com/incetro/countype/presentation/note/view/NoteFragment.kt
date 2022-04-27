@@ -20,7 +20,7 @@ import com.incetro.countype.R
 import com.incetro.countype.common.navigation.AppRouter
 import com.incetro.countype.common.navigation.getInitParams
 import com.incetro.countype.common.navigation.saveInitParams
-import com.incetro.countype.common.presentation.base.BaseFragment
+import com.incetro.countype.common.presentation.base.basefragment.BaseFragment
 import com.incetro.countype.data.repository.NoteRepository
 import com.incetro.countype.entity.Record
 import com.incetro.countype.presentation.note.di.NoteComponent

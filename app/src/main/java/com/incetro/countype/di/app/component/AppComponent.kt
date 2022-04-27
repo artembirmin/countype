@@ -1,4 +1,10 @@
-package com.incetro.countype.di.app
+/*
+ * My Application
+ *
+ * Created by artembirmin on 27/4/2022.
+ */
+
+package com.incetro.countype.di.app.component
 
 import android.content.Context
 import com.incetro.countype.app.App
