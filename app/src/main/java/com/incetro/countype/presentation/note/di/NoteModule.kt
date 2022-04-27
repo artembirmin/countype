@@ -1,7 +1,7 @@
 package com.incetro.countype.presentation.note.di
 
 import android.content.Context
-import com.incetro.countype.di.scope.FeatureScope
+import com.incetro.countype.common.di.scope.FeatureScope
 import com.incetro.countype.presentation.note.interactor.NoteInteractor
 import com.incetro.countype.presentation.note.interactor.NoteInteractorImpl
 import com.incetro.countype.presentation.note.presenter.NotePresenter

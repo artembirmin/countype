@@ -35,7 +35,7 @@ class NoteFragment : BaseFragment<Nothing>(), NoteView {
 
     private val TAG = "NoteFragment"
 
-    override val layoutRes: Int = R.layout.records_list_recyclerview
+    override val layoutRes: Int = R.layout.fragment_note
 
     @Inject
     lateinit var presenter: NotePresenter
@@ -56,7 +56,7 @@ class NoteFragment : BaseFragment<Nothing>(), NoteView {
         savedInstanceState: Bundle?
     ): View? {
         inject()
-        val view = inflater.inflate(R.layout.records_list_recyclerview, container, false)
+        val view = inflater.inflate(R.layout.fragment_note, container, false)
         presenter.attachView(this)
         return view
     }
@@ -82,6 +82,10 @@ class NoteFragment : BaseFragment<Nothing>(), NoteView {
                     router.exit()
                 }
             }
+    }
+
+    override fun onBackPressed() {
+        router.exit()
     }
 
     override fun onDestroy() {

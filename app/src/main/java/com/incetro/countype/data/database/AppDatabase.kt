@@ -22,7 +22,7 @@ import com.incetro.countype.data.database.note.NoteDto
 abstract class AppDatabase : RoomDatabase() {
     companion object {
         const val DB_NAME = "countype_db"
-        const val VERSION = 1
+        const val VERSION = 2
     }
 
     abstract fun noteDao(): NoteDao

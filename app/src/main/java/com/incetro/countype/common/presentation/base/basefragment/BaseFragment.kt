@@ -14,9 +14,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.incetro.countype.app.AppActivity
+import com.incetro.countype.common.di.componentmanager.ComponentManager
+import com.incetro.countype.common.di.componentmanager.ComponentsStore
 import com.incetro.countype.common.presentation.base.BaseView
-import com.incetro.countype.di.componentmanager.ComponentManager
-import com.incetro.countype.di.componentmanager.ComponentsStore
 import moxy.MvpAppCompatFragment
 
 /**

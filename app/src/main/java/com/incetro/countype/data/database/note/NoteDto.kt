@@ -13,7 +13,7 @@ data class NoteDto(
     @PrimaryKey
     val id: String,
     val name: String,
-    val date: Date,
+    val lastUpdateTime: Date,
     val records: List<Record>
 ) {
     companion object {
@@ -24,6 +24,6 @@ data class NoteDto(
 fun NoteDto.toNote(): Note = Note(
     id = id,
     name = name,
-    date = date,
+    lastUpdateTime = lastUpdateTime,
     records = records
 )

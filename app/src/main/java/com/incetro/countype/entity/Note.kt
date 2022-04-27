@@ -14,13 +14,13 @@ data class Note(
     @PrimaryKey
     val id: String,
     val name: String,
-    val date: Date,
+    val lastUpdateTime: Date,
     val records: List<Record>
 )
 
 fun Note.toNoteDto(): NoteDto = NoteDto(
     id = id,
     name = name,
-    date = date,
+    lastUpdateTime = lastUpdateTime,
     records = records
 )

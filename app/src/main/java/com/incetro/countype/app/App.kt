@@ -1,7 +1,7 @@
 package com.incetro.countype.app
 
 import android.app.Application
-import com.incetro.countype.di.componentmanager.ComponentsManager
+import com.incetro.countype.common.di.componentmanager.ComponentsManager
 
 class App : Application() {
 

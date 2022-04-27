@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ AndroidArchitectureResearch
+  ~
+  ~ Created by artembirmin on 13/3/2022.
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/orange_300" android:state_enabled="true" />
+    <item android:color="@color/orange_100" android:state_enabled="false" />
+    <item android:color="@color/orange_300" />
+</selector>
