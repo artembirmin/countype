@@ -17,15 +17,15 @@ import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.incetro.countype.R
+import com.incetro.countype.common.di.note.NoteComponent
 import com.incetro.countype.common.navigation.AppRouter
 import com.incetro.countype.common.navigation.getInitParams
 import com.incetro.countype.common.navigation.saveInitParams
 import com.incetro.countype.common.presentation.base.basefragment.BaseFragment
 import com.incetro.countype.data.repository.NoteRepository
 import com.incetro.countype.entity.Record
-import com.incetro.countype.presentation.note.di.NoteComponent
+import com.incetro.countype.presentation.note.adapter.RecordsListAdapter
 import com.incetro.countype.presentation.note.presenter.NotePresenter
-import com.incetro.countype.presentation.note.view.adapter.RecordsListAdapter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject

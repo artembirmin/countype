@@ -6,8 +6,8 @@
 
 package com.incetro.countype.presentation.dialog.inputdialog.di
 
-import com.incetro.countype.common.di.componentmanager.ComponentManager
-import com.incetro.countype.common.di.componentmanager.ComponentsManager
+import com.incetro.countype.app.componentmanager.ComponentManager
+import com.incetro.countype.app.componentmanager.ComponentsManager
 import com.incetro.countype.common.di.scope.FeatureScope
 import com.incetro.countype.presentation.dialog.inputdialog.view.InputDialogFragment
 import dagger.Component

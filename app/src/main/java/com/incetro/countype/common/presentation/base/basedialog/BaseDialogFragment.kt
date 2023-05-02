@@ -15,8 +15,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.DialogFragment
-import com.incetro.countype.common.di.componentmanager.ComponentManager
-import com.incetro.countype.common.di.componentmanager.ComponentsStore
+import com.incetro.countype.app.componentmanager.ComponentManager
 import com.incetro.countype.common.presentation.base.BaseView
 import com.incetro.countype.common.presentation.base.basefragment.BaseFragment
 import moxy.MvpAppCompatDialogFragment

@@ -8,6 +8,7 @@ import com.incetro.countype.entity.toNoteDto
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -47,5 +48,9 @@ class NoteRepositoryImpl @Inject constructor(private val noteDao: NoteDao) : Not
                 )
             )
         return noteDao.insert(newNote.toNoteDto()).andThen(Single.just(newNote))
+    }
+
+    override fun removeItem(note: Note) {
+        noteDao.delete(note.toNoteDto()).subscribeOn(Schedulers.io()).subscribe()
     }
 }

@@ -64,4 +64,8 @@ class NoteListPresenter @Inject constructor(
     override fun onBackPressed() {
         router.exit()
     }
+
+    fun removeItemAt(note: Note) {
+        repository.removeItem(note)
+    }
 }

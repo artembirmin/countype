@@ -1,4 +1,4 @@
-package com.incetro.countype.presentation.note.view.custom
+package com.incetro.countype.presentation.note.custom
 
 import android.content.Context
 import android.util.AttributeSet

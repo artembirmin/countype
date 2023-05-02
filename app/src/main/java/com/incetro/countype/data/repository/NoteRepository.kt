@@ -18,4 +18,5 @@ interface NoteRepository {
     fun addNote(note: Note): Completable
     fun observeNotes(): Flowable<List<Note>>
     fun addNewNote(noteName: String): Single<Note>
+    fun removeItem(note: Note)
 }

@@ -4,14 +4,14 @@
  * Created by artembirmin on 16/2/2022.
  */
 
-package com.incetro.countype.common.di.componentmanager;
+package com.incetro.countype.app.componentmanager;
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 
-import com.incetro.countype.common.di.app.component.AppComponent;
-import com.incetro.countype.common.di.app.component.DaggerAppComponent;
+import com.incetro.countype.common.di.app.AppComponent;
+import com.incetro.countype.common.di.app.DaggerAppComponent;
 import com.incetro.countype.common.di.app.module.AppModule;
 
 /**

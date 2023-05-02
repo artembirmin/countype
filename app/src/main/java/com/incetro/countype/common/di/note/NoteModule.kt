@@ -1,4 +1,4 @@
-package com.incetro.countype.presentation.note.di
+package com.incetro.countype.common.di.note
 
 import android.content.Context
 import com.incetro.countype.common.di.scope.FeatureScope

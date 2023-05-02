@@ -1,4 +1,4 @@
-package com.incetro.countype.presentation.note.view.adapter
+package com.incetro.countype.presentation.note.adapter
 
 import android.util.Log
 import android.view.KeyEvent
@@ -11,7 +11,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.incetro.countype.R
 import com.incetro.countype.entity.Record
-import com.incetro.countype.presentation.note.view.custom.PhraseInputEditText
+import com.incetro.countype.presentation.note.custom.PhraseInputEditText
 import com.incetro.countype.presentation.note.view.getMaxWidhtOfCountOfSymbols
 import com.incetro.countype.presentation.note.view.getWidhtForTextView
 

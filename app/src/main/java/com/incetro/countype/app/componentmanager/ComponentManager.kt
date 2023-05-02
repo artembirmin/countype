@@ -4,7 +4,7 @@
  * Created by artembirmin on 16/2/2022.
  */
 
-package com.incetro.countype.common.di.componentmanager
+package com.incetro.countype.app.componentmanager
 
 /**
  * Manages one Dagger component of type [T].

@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.incetro.countype.presentation.note.view.custom.PhraseInputEditText
+        <com.incetro.countype.presentation.note.custom.PhraseInputEditText
             android:id="@+id/phrase_input_edittext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -53,13 +53,14 @@
             app:layout_constraintStart_toEndOf="@+id/phrase_input_edittext"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <EditText
             android:id="@+id/answer_textview"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
+            android:backgroundTint="@color/white"
             android:text="твой ответ"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

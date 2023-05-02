@@ -16,8 +16,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class NoteViewItem(
-    private val note: Note,
-    private val onSelectListener: (note: Note) -> Unit
+    val note: Note,
+    private val onSelectListener: (note: Note) -> Unit,
 ) : DataBindingViewItem<ListItemNoteBinding> {
     override fun getLayoutId(): Int = R.layout.list_item_note
 

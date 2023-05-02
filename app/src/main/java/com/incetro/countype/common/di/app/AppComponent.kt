@@ -1,10 +1,10 @@
 /*
  * My Application
  *
- * Created by artembirmin on 27/4/2022.
+ * Created by artembirmin on 10/5/2022.
  */
 
-package com.incetro.countype.common.di.app.component
+package com.incetro.countype.common.di.app
 
 import android.content.Context
 import com.incetro.countype.app.App

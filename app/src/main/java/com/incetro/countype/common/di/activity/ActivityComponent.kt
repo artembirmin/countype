@@ -2,9 +2,9 @@ package com.incetro.countype.common.di.activity
 
 import android.content.Context
 import com.incetro.countype.app.AppActivity
-import com.incetro.countype.common.di.app.component.AppComponent
-import com.incetro.countype.common.di.componentmanager.ComponentManager
-import com.incetro.countype.common.di.componentmanager.ComponentsManager
+import com.incetro.countype.app.componentmanager.ComponentManager
+import com.incetro.countype.app.componentmanager.ComponentsManager
+import com.incetro.countype.common.di.app.AppComponent
 import com.incetro.countype.common.di.scope.ActivityScope
 import com.incetro.countype.common.navigation.AppRouter
 import com.incetro.countype.data.repository.NoteRepository

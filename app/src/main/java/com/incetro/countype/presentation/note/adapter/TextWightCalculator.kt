@@ -10,7 +10,7 @@ private val bounds = Rect()
 private const val referenceSymbol = "9"
 
 fun String.getWidhtForTextView(textView: TextView): Int {
-    val textPaint: Paint = textView.getPaint()
+    val textPaint: Paint = textView.paint
     textPaint.getTextBounds(this, 0, this.length, bounds)
     return bounds.width()
 }

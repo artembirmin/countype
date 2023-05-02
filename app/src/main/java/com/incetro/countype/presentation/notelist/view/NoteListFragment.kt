@@ -8,15 +8,18 @@ package com.incetro.countype.presentation.notelist.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.incetro.countype.R
+import com.incetro.countype.common.di.notelist.NoteListComponent
 import com.incetro.countype.common.presentation.base.basefragment.BaseFragment
 import com.incetro.countype.databinding.FragmentNoteListBinding
 import com.incetro.countype.presentation.dialog.inputdialog.view.InputDialogFragment
 import com.incetro.countype.presentation.dialog.inputdialog.view.InputDialogInitParams
 import com.incetro.countype.presentation.notelist.adapter.NoteListAdapter
 import com.incetro.countype.presentation.notelist.adapter.NoteViewItem
-import com.incetro.countype.presentation.notelist.di.component.NoteListComponent
+import com.incetro.countype.presentation.notelist.adapter.SwipeToDeleteCallback
 import com.incetro.countype.presentation.notelist.presenter.NoteListPresenter
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
@@ -38,10 +41,18 @@ class NoteListFragment : BaseFragment<FragmentNoteListBinding>(), NoteListView {
     private val noteListAdapter = NoteListAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val swipeHandler = object : SwipeToDeleteCallback(requireContext()) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                presenter.removeItemAt(noteListAdapter.currentList[viewHolder.absoluteAdapterPosition].note)
+            }
+        }
         binding.rvNoteList.apply {
             adapter = noteListAdapter
+            ItemTouchHelper(swipeHandler).attachToRecyclerView(this@apply)
             layoutManager = LinearLayoutManager(context)
+            ItemTouchHelper(swipeHandler).attachToRecyclerView(this)
         }
+
         binding.fabAddNote.setOnClickListener { presenter.onAddNoteClick() }
     }
 
