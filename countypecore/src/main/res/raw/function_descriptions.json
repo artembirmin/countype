@@ -22,6 +22,178 @@
       ]
     }
   ],
+  "datetime": [
+    {
+      "functionId": "calendarUnitBetweenDates",
+      "templates": [
+        {
+          "expression": "__unit от __datestamp до __datestamp",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "__unit с __datestamp по __datestamp",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "__unit между __datestamp и __datestamp",
+          "argumentsOrder": [
+            3,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "calendarUnitToDate",
+      "templates": [
+        {
+          "expression": "__unit до __datestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "intervalBetweenDates",
+      "templates": [
+        {
+          "expression": "__unit до __datestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__unit по __datestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "intervalBetweenTimestamps",
+      "templates": [
+        {
+          "expression": "__unit до __timestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__unit по __timestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "calendarUnitExpressionAgo",
+      "templates": [
+        {
+          "expression": "__number __unit назад",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "__number __unit тому назад",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "calendarUnitSinceDate",
+      "templates": [
+        {
+          "expression": "__unit с __datestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "calendarUnitExpressionAfterDate",
+      "templates": [
+        {
+          "expression": "__unit после __datestamp",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "timeInTimezone",
+      "templates": [
+        {
+          "expression": "__timezone время",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "время в __timezone",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "время __timezone",
+          "argumentsOrder": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "differenceBetweenTimezones",
+      "templates": [
+        {
+          "expression": "времени между __timezone и __timezone",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "время между __timezone и __timezone",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "разница __timezone и __timezone",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
   "percentage": [
     {
       "functionId": "percentOf",
@@ -32,11 +204,305 @@
             1,
             2
           ]
+        },
+        {
+          "expression": "__percentage из __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "percentOfWhat",
+      "templates": [
+        {
+          "expression": "__number это __percentage от",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__percentage от чего равно __number",
+          "argumentsOrder": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "addPercentTo",
+      "templates": [
+        {
+          "expression": "__percentage к __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__percentage к __number __unit",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "percentMinusWhat",
+      "templates": [
+        {
+          "expression": "__number это __percentage отняли от",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__percentage из чего равно __number",
+          "argumentsOrder": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "percentOnWhat",
+      "templates": [
+        {
+          "expression": "__number это __percentage к",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__percentage к чему равно __number",
+          "argumentsOrder": [
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "whatPercentOf",
+      "templates": [
+        {
+          "expression": "__number как % от __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__number сколько % от __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "whatPercentMinus",
+      "templates": [
+        {
+          "expression": "__number это сколько % отняли от __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "whatPercentAdd",
+      "templates": [
+        {
+          "expression": "__number это сколько % добавили к __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__number это сколько % к __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__number это сколько % сверх __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
         }
       ]
     }
   ],
-  "notCalculating" : [
+  "general": [
+    {
+      "functionId": "remainder",
+      "templates": [
+        {
+          "expression": "остаток от __number / __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "halfOf",
+      "templates": [
+        {
+          "expression": "полоивна от __number",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "полоивна __number",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "__number пополам",
+          "argumentsOrder": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "lesserOf",
+      "templates": [
+        {
+          "expression": "меньшее из __number и __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "что меньше __number или __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "greaterOf",
+      "templates": [
+        {
+          "expression": "большее из __number и __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "что больше __number или __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "midpoint",
+      "templates": [
+        {
+          "expression": "среднее между __number и __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "proportionsFindNumerator",
+      "templates": [
+        {
+          "expression": "__number к __number это как что к __number",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "__number к __number как что к __number",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "proportionsFindDenominator",
+      "templates": [
+        {
+          "expression": "__number к __number это как __number к",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "__number к __number как __number к",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "randomNumber",
+      "templates": [
+        {
+          "expression": "число между __number и __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "whatIsCheaperForMeasure",
+      "templates": [
+        {
+          "expression": "что дешевле __number за  / __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "notCalculating": [
     {
       "functionId": "formatNumberAndUnit",
       "templates": [
