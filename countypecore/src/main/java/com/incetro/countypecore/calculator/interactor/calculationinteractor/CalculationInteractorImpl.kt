@@ -1,11 +1,11 @@
 /*
  * Created by Artem Petrosyan on 6/10/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
+ *
  */
 
 /*
  * Created by Artem Petrosyan on 7/9/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
+ *
  */
 
 package com.incetro.countypecore.calculator.interactor.calculationinteractor

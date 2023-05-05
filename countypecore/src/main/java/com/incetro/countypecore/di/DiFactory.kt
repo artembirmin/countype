@@ -1,6 +1,6 @@
 /*
  * Created by Artem Petrosyan on 27/10/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
+ *
  */
 
 package com.incetro.countypecore.di

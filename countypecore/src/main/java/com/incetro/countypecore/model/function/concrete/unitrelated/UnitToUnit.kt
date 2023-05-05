@@ -1,16 +1,16 @@
 /*
  * Created by Artem Petrosyan on 27/9/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
+ *
  */
 
 /*
  * Created by Artem Petrosyan on 26/9/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
+ *
  */
 
 /*
  * Created by Artem Petrosyan on 9/9/2021.
- * Copyright © 2021 Incetro Inc. All rights reserved.
+ *
  */
 
 package com.incetro.countypecore.model.function.concrete.unitrelated
