@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.incetro.countype.entity.Record
+import com.incetro.countypecore.model.function.functiondescription.Template
 import java.util.*
 
 object Converters {
@@ -31,5 +32,30 @@ object Converters {
     @JvmStatic
     fun fromDateTime(value: Date) = value.time
 
+    @TypeConverter
+    @JvmStatic
+    fun fromStringToTemplateList(value: String): List<Template> {
+        val listType = object : TypeToken<ArrayList<Template>>() {}.type
+        return gson.fromJson(value, listType)
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromTemplateListToString(list: List<Template>): String {
+        return gson.toJson(list)
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromStringToIntList(value: String): List<Int> {
+        val listType = object : TypeToken<ArrayList<Int>>() {}.type
+        return gson.fromJson(value, listType)
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromIntListToString(list: List<Int>): String {
+        return gson.toJson(list)
+    }
 
 }
