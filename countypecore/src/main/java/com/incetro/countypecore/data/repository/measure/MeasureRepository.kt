@@ -22,4 +22,6 @@ interface MeasureRepository {
      * Добавляет экземпляр [Measure].
      */
     fun add(measure: Measure)
+
+    fun addAll(measures: List<Measure>)
 }

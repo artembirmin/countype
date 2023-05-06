@@ -12,7 +12,7 @@ internal class CityRepositoryImpl : CityRepository {
 
     private val datestamps: MutableList<City> = mutableListOf()
 
-    override fun findDatestampByDate(alias: String): City? {
+    override fun findCityByAlias(alias: String): City? {
         return datestamps.find {
             it.aliases.contains(alias)
         }

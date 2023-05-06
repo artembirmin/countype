@@ -14,9 +14,12 @@ import com.incetro.countypecore.common.KeywordConstants
 import com.incetro.countypecore.core.lexemesparser.LexemesParser
 import com.incetro.countypecore.core.phrasestandardizer.PhraseStandardizer
 import com.incetro.countypecore.core.phraseunnecessarycleaner.PhraseUnnecessaryCleaner
+import com.incetro.countypecore.data.repository.city.CityRepository
+import com.incetro.countypecore.data.repository.datestamp.DatestampRepository
 import com.incetro.countypecore.data.repository.function.FunctionRepository
 import com.incetro.countypecore.data.repository.functiondescription.FunctionDescriptionRepository
 import com.incetro.countypecore.data.repository.measure.MeasureRepository
+import com.incetro.countypecore.data.repository.timestamp.TimestampRepository
 import com.incetro.countypecore.model.function.ArgumentType
 import com.incetro.countypecore.model.function.ArgumentType.*
 import com.incetro.countypecore.model.function.Function
@@ -35,6 +38,9 @@ internal class CalculationInteractorImpl(
     private val functionRepository: FunctionRepository,
     private val functionDescriptionRepository: FunctionDescriptionRepository,
     private val measureRepository: MeasureRepository,
+    private val cityRepository: CityRepository,
+    private val timestampRepository: TimestampRepository,
+    private val datestampRepository: DatestampRepository,
 ) : CalculationInteractor {
 
     /**
@@ -58,7 +64,11 @@ internal class CalculationInteractorImpl(
         datestamps: List<Datestamp>,
         timestamps: List<Timestamp>,
     ) {
-
+        functionDescriptionRepository.addAll(functionDescriptions)
+        measureRepository.addAll(measures)
+        cityRepository.addAll(cities)
+        datestampRepository.addAll(datestamps)
+        timestampRepository.addAll(timestamps)
     }
 
     private fun String.standardized(): String =
@@ -88,6 +98,15 @@ internal class CalculationInteractorImpl(
                     }
                     PERCENTAGE -> {
                         return@map lexemeToPercentage(lexeme) ?: continue
+                    }
+                    CITY -> {
+                        return@map cityRepository.findCityByAlias(lexeme) ?: continue
+                    }
+                    DATESTAMP -> {
+                        return@map datestampRepository.findDatestampByDate(lexeme) ?: continue
+                    }
+                    TIMESTAMP -> {
+                        return@map timestampRepository.findTimestampByTime(lexeme) ?: continue
                     }
                 }
             }

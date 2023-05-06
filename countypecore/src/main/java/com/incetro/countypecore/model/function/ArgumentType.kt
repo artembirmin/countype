@@ -22,5 +22,11 @@ enum class ArgumentType {
     /**
      * Процент. В общем случае приводится к [Double].
      */
-    PERCENTAGE
+    PERCENTAGE,
+
+    CITY,
+
+    DATESTAMP,
+
+    TIMESTAMP
 }

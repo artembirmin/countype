@@ -11,7 +11,7 @@ import com.incetro.countypecore.model.function.argumentobject.City
 
 interface CityRepository {
 
-    fun findDatestampByDate(alias: String): City?
+    fun findCityByAlias(alias: String): City?
 
     fun addAll(cities: List<City>)
 }

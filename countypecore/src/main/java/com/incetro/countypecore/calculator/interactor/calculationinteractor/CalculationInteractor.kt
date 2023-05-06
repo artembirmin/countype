@@ -21,6 +21,7 @@ interface CalculationInteractor {
      * Вычисляет команду, описанную в [phrase].
      */
     fun calculate(phrase: String): FormattedValue
+
     fun setupData(
         functionDescriptions: List<FunctionDescription>,
         measures: List<Measure>,
