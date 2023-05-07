@@ -59,6 +59,12 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'
 
+    //Network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
+
     // cicerone
     implementation "ru.terrakok.cicerone:cicerone:5.0.0"
 
@@ -89,4 +95,9 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    implementation 'net.danlew:android.joda:2.10.14'
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 }

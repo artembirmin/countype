@@ -5,32 +5,20 @@
 
 package com.incetro.countypecore.data.repository.functiondescription
 
-import com.incetro.countypecore.R
-import com.incetro.countypecore.data.file.JsonFileReader
 import com.incetro.countypecore.data.repository.functiondescription.factory.TemplateRegexToTemplateWithFunctionIdMapFactory
 import com.incetro.countypecore.model.function.TemplateWithFunctionIdResult
 import com.incetro.countypecore.model.function.functiondescription.FunctionDescription
 import com.incetro.countypecore.model.function.functiondescription.Template
-import com.incetro.countypecore.model.json.FunctionDescriptionsLists
 
 internal class FunctionDescriptionRepositoryImpl(
     private val templateRegexToTemplateWithFunctionIdMapFactory:
     TemplateRegexToTemplateWithFunctionIdMapFactory,
-    private val jsonFileReader: JsonFileReader
 ) : FunctionDescriptionRepository {
-
-    /**
-     * Name of JSON file with function descriptions in `resources`.
-     */
-    private val functionDescriptionsJsonFileName = R.raw.function_descriptions
 
     /**
      * Хранит объекты [FunctionDescription] в рантайме.
      */
-    private val functionDescriptions: MutableList<FunctionDescription> =
-        jsonFileReader.decerializeObjectFromJsonFileFromResources<FunctionDescriptionsLists>(
-            functionDescriptionsJsonFileName
-        ).flatten().toMutableList()
+    private val functionDescriptions: MutableList<FunctionDescription> = mutableListOf()
 
     /**
      * Отображает [Template.expression] в виде [Regex] в [TemplateWithFunctionIdResult].

@@ -48,6 +48,7 @@ class AppActivity : AppCompatActivity() {
         super.onDestroy()
         if (isFinishing) {
             ActivityComponent.Manager.releaseComponent()
+            appLauncher.calculatorSetupDisposable?.dispose()
         }
     }
 

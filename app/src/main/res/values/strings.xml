@@ -14,4 +14,13 @@
     <string name="hint_folder_name">Имя заметки</string>
     <string name="label_add">Добавить</string>
     <string name="label_cancel">Отмена</string>
+
+
+    <string name="alert_button_ok">Ок</string>
+    <string name="alert_button_confirm">Подтвердить</string>
+    <string name="alert_button_cancel">Отмена</string>
+    <string name="alert_button_exit">Выйти</string>
+    <string name="alert_button_delete">Удалить</string>
+
+    <string name="error_common_text">Что-то пошло не так. Проверьте интернет соединение, либо повторите попытку позже</string>
 </resources>

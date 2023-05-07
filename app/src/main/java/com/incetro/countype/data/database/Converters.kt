@@ -3,8 +3,8 @@ package com.incetro.countype.data.database
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.incetro.countype.data.database.functiondescription.TemplateDto
 import com.incetro.countype.entity.Record
-import com.incetro.countypecore.model.function.functiondescription.Template
 import java.util.*
 
 object Converters {
@@ -34,14 +34,14 @@ object Converters {
 
     @TypeConverter
     @JvmStatic
-    fun fromStringToTemplateList(value: String): List<Template> {
-        val listType = object : TypeToken<ArrayList<Template>>() {}.type
+    fun fromStringToTemplateList(value: String): List<TemplateDto> {
+        val listType = object : TypeToken<ArrayList<TemplateDto>>() {}.type
         return gson.fromJson(value, listType)
     }
 
     @TypeConverter
     @JvmStatic
-    fun fromTemplateListToString(list: List<Template>): String {
+    fun fromTemplateListToString(list: List<TemplateDto>): String {
         return gson.toJson(list)
     }
 
@@ -57,5 +57,19 @@ object Converters {
     fun fromIntListToString(list: List<Int>): String {
         return gson.toJson(list)
     }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromStringToStringList(value: String): List<String> {
+        val listType = object : TypeToken<ArrayList<String>>() {}.type
+        return gson.fromJson(value, listType)
+    }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromStringListToString(list: List<String>): String {
+        return gson.toJson(list)
+    }
+
 
 }

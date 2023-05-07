@@ -11,4 +11,4 @@ import moxy.MvpView
 /**
  * MvpView extension. Here you can place methods for all MvpViews in project.
  */
-interface BaseView : MvpView
+interface BaseView : MvpView, MessageView

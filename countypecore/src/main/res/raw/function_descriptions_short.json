@@ -1,0 +1,133 @@
+{
+  "unitRelated": [
+  ],
+  "datetime": [
+    {
+      "functionId": "calendarUnitBetweenDates",
+      "templates": [
+        {
+          "expression": "__unit от __datestamp до __datestamp",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "__unit с __datestamp по __datestamp",
+          "argumentsOrder": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "expression": "__unit между __datestamp и __datestamp",
+          "argumentsOrder": [
+            3,
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "percentage": [
+    {
+      "functionId": "percentOf",
+      "templates": [
+        {
+          "expression": "__percentage от __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__percentage из __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "percentOfWhat",
+      "templates": [
+        {
+          "expression": "__number это __percentage от",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "__percentage от чего равно __number",
+          "argumentsOrder": [
+            2,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "general": [
+    {
+      "functionId": "remainder",
+      "templates": [
+        {
+          "expression": "остаток от __number / __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "halfOf",
+      "templates": [
+        {
+          "expression": "полоивна от __number",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "полоивна __number",
+          "argumentsOrder": [
+            1
+          ]
+        },
+        {
+          "expression": "__number пополам",
+          "argumentsOrder": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "functionId": "lesserOf",
+      "templates": [
+        {
+          "expression": "меньшее из __number и __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        },
+        {
+          "expression": "что меньше __number или __number",
+          "argumentsOrder": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "notCalculating": [
+  ]
+}

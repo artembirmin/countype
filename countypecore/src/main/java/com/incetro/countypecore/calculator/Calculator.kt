@@ -14,4 +14,6 @@ interface Calculator {
      * или возвращает `null`, если вычисления не удались.
      */
     fun calculateOrNull(phrase: String): String?
+
+    fun setupData(calculatorConfig: CalculatorConfig)
 }

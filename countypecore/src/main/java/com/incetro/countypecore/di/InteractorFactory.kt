@@ -24,7 +24,10 @@ internal object InteractorFactory : DiFactory() {
             CoreFactory.getPhraseUnnecessaryCleaner(),
             RepositoriesFactory.getFunctionRepository(),
             RepositoriesFactory.getFunctionDescriptionRepository(resources),
-            RepositoriesFactory.getMeasureRepository(resources)
+            RepositoriesFactory.getMeasureRepository(resources),
+            RepositoriesFactory.getCityRepository(),
+            RepositoriesFactory.getTimestampRepository(),
+            RepositoriesFactory.getDatestampRepository()
         ) as CalculationInteractor
     }
 }

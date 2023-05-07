@@ -14,8 +14,10 @@ internal class TemplateRegexToTemplateWithFunctionIdMapFactoryImpl(
 
     override fun getMap(functionDescriptions: List<FunctionDescription>):
             Map<Regex, TemplateWithFunctionIdResult> {
+
         val regexToTemplateWithFunctionId =
             mutableMapOf<Regex, TemplateWithFunctionIdResult>()
+
         functionDescriptions.forEach { functionDescription ->
             functionDescription
                 .templates

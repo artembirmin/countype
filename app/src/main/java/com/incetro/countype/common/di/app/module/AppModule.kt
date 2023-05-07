@@ -2,9 +2,8 @@ package com.incetro.countype.common.di.app.module
 
 import android.app.Application
 import android.content.Context
-import com.incetro.countype.app.AppLauncher
-import com.incetro.countype.common.navigation.AppRouter
-import com.incetro.countype.data.repository.NoteRepository
+import com.incetro.countypecore.calculator.Calculator
+import com.incetro.countypecore.calculator.CalculatorImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -20,10 +19,7 @@ class AppModule(private val context: Application) {
 
     @Provides
     @Singleton
-    fun provideAppLauncher(
-        router: AppRouter,
-        noteRepository: NoteRepository
-    ): AppLauncher {
-        return AppLauncher(router, noteRepository)
+    fun provideCalculator(context: Context): Calculator {
+        return CalculatorImpl(context.resources)
     }
 }
