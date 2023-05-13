@@ -3,7 +3,7 @@ package com.incetro.countype.common.di.app.module
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.incetro.countype.data.api.CountypeApi
+import com.incetro.countype.data.api.ServerApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -59,21 +59,21 @@ class NetworkModule {
     internal fun provideTheRunApi(
         retrofitBuilder: Retrofit.Builder,
         okHttpClientBuilder: OkHttpClient.Builder,
-    ): CountypeApi {
+    ): ServerApi {
 
         return retrofitBuilder
             .client(okHttpClientBuilder.build())
             .build()
-            .create(CountypeApi::class.java)
+            .create(ServerApi::class.java)
     }
 
     companion object {
         // For emulator use http://10.0.2.2:8080/
         // For device use http://127.0.0.1:8080/
-        private const val BASE_URL = "http://10.0.2.2:8080/"
+        private const val BASE_URL = "http://192.168.0.153:8080/"
         private const val CACHE_SIZE_BYTES = (5 * 1024 * 1024).toLong()
-        private const val CONNECT_TIMEOUT = 45L
-        private const val READ_TIMEOUT = 45L
-        private const val WRITE_TIMEOUT = 45L
+        private const val CONNECT_TIMEOUT = 10L
+        private const val READ_TIMEOUT = 10L
+        private const val WRITE_TIMEOUT = 10L
     }
 }

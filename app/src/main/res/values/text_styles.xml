@@ -8,7 +8,7 @@
 
     <style name="toolbar_title_folder">
         <item name="android:textSize">
-            20sp
+            18sp
         </item>
         <item name="android:textColor">
             @color/black

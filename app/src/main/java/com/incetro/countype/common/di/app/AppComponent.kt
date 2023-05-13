@@ -11,7 +11,7 @@ import com.incetro.countype.app.App
 import com.incetro.countype.app.AppLauncher
 import com.incetro.countype.common.di.app.module.*
 import com.incetro.countype.common.navigation.AppRouter
-import com.incetro.countype.data.api.CountypeApi
+import com.incetro.countype.data.api.ServerApi
 import com.incetro.countype.data.database.city.CityDao
 import com.incetro.countype.data.database.datestamp.DatestampDao
 import com.incetro.countype.data.database.functiondescription.FunctionDescriptionDao
@@ -48,7 +48,7 @@ interface AppComponent {
     // Repository module
     fun provideNoteRepository(): NoteRepository
 
-    fun provideCountypeApi(): CountypeApi
+    fun provideCountypeApi(): ServerApi
     fun noteDao(): NoteDao
     fun functionDescriptionDao(): FunctionDescriptionDao
     fun measureDao(): MeasureDao

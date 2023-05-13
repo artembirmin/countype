@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_500">#8D8D8D</color>
     <color name="gray_900">#B2000000</color>
-    <color name="orange_300">#FFB74D</color>
-    <color name="orange_200">#FFCC80</color>
-    <color name="orange_150">#FAD092</color>
-    <color name="orange_100">#FBE2BC</color>
+    <color name="orange_300">#009688</color>
+    <color name="orange_200">#4DB6AC</color>
+    <color name="orange_150">#80CBC4</color>
+    <color name="orange_100">#B2DFDB</color>
 </resources>

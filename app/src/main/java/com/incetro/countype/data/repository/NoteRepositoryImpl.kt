@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @Singleton
 class NoteRepositoryImpl @Inject constructor(private val noteDao: NoteDao) : NoteRepository {
 
+
     override fun saveRecords(noteId: String, records: List<Record>): Completable {
         return noteDao.updateRecordsAndTime(noteId, records, Date())
     }
@@ -40,7 +41,6 @@ class NoteRepositoryImpl @Inject constructor(private val noteDao: NoteDao) : Not
                 lastUpdateTime = Date(),
                 records = listOf(
                     Record(
-                        id = UUID.randomUUID().toString(),
                         position = 1,
                         phrase = "",
                         answer = ""

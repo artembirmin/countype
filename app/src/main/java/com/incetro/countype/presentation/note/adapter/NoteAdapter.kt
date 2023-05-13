@@ -131,7 +131,7 @@ class RecordsListAdapter(
             phraseInputEditText.doOnTextChanged { text, _, _, _ ->
                 text?.let {
                     savePhraseToRecords(text)
-                    onPhraseTyping(text.toString(), currentItemPosition)
+//                    onPhraseTyping(text.toString(), currentItemPosition)
                 }
             }
             phraseInputEditText.setOnEditorActionListener { v, actionId, _ ->

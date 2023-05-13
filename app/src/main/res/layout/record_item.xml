@@ -28,13 +28,13 @@
             android:id="@+id/phrase_input_edittext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:paddingHorizontal="8dp"
             android:layout_marginEnd="4dp"
             android:background="@android:color/transparent"
             android:inputType="textMultiLine"
             android:paddingVertical="6dp"
             android:text="asdfgfewerfыыыыыыыg"
-            android:textSize="20sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/answer_textview"
             app:layout_constraintStart_toEndOf="@+id/position_textview"
@@ -55,16 +55,16 @@
 
         <EditText
             android:id="@+id/answer_textview"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:paddingHorizontal="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
+            android:textSize="16sp"
             android:backgroundTint="@color/white"
             android:text="твой ответ"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

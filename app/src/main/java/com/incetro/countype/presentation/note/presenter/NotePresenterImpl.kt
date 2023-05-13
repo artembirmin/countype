@@ -4,7 +4,6 @@ import android.os.Looper
 import com.incetro.countype.entity.Record
 import com.incetro.countype.presentation.note.interactor.NoteInteractor
 import com.incetro.countype.presentation.note.view.NoteView
-import java.util.*
 
 class NotePresenterImpl(
     private val interactor: NoteInteractor
@@ -29,7 +28,6 @@ class NotePresenterImpl(
         view.insertItemToPosition(
             newItemPosition,
             Record(
-                id = UUID.randomUUID().toString(),
                 position = newItemPosition + 1,
                 phrase = rightPartOfText,
                 answer = answer

@@ -14,7 +14,7 @@ import com.incetro.countype.data.database.timestamp.TimestampDto
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 
-interface CountypeApi {
+interface ServerApi {
 
     @GET("/measure")
     fun getMeasures(): Single<List<MeasureDto>>
