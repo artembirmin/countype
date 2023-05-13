@@ -69,7 +69,10 @@ class NetworkModule {
 
     companion object {
         // For emulator use http://10.0.2.2:8080/
-        // For device use http://127.0.0.1:8080/
+        // For device use http://192.168.0.153:8080/
+        // U need to use ur router ip. U can get in from cmd command "ipconfig"
+        // Find Адаптер беспроводной локальной сети Беспроводная сеть:
+        // And then IPv4-адрес.
         private const val BASE_URL = "http://192.168.0.153:8080/"
         private const val CACHE_SIZE_BYTES = (5 * 1024 * 1024).toLong()
         private const val CONNECT_TIMEOUT = 10L
