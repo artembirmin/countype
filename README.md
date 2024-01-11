@@ -2,7 +2,8 @@
 # Алгоритм
 
 Достоин внимания только модуль **[countypecore](https://github.com/artembirmin/countype/tree/master/countypecore)**. В нем описан алгоритм, вычисляющий вводимые выражения.  
-Входной точкой явялется [вот эта](https://github.com/artembirmin/countype/blob/09842309c5a77670ac442693c2c6d5382f71e25c/countypecore/src/main/java/com/incetro/countypecore/calculator/CalculatorImpl.kt#L28C18-L28C38) функция.
+Входной точкой явялется [вот эта](https://github.com/artembirmin/countype/blob/09842309c5a77670ac442693c2c6d5382f71e25c/countypecore/src/main/java/com/incetro/countypecore/calculator/CalculatorImpl.kt#L28C18-L28C38) функция.  
+Тесты алгоритма находятся [здесь](https://github.com/artembirmin/countype/tree/09842309c5a77670ac442693c2c6d5382f71e25c/countypecore/src/androidTest/java/com/incetro/countypecore).
 
 Шаги алгоритма:
 
