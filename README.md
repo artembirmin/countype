@@ -1,8 +1,8 @@
-# Countype
 
-## Алгоритм
+# Алгоритм
 
-Достоин внимания только модуль **[countypecore](https://github.com/artembirmin/countype/tree/master/countypecore)**. В нем описан алгоритм, вычисляющий вводимые выражения.
+Достоин внимания только модуль **[countypecore](https://github.com/artembirmin/countype/tree/master/countypecore)**. В нем описан алгоритм, вычисляющий вводимые выражения.  
+Входной точкой явялется [вот эта](https://github.com/artembirmin/countype/blob/09842309c5a77670ac442693c2c6d5382f71e25c/countypecore/src/main/java/com/incetro/countypecore/calculator/CalculatorImpl.kt#L28C18-L28C38) функция.
 
 Шаги алгоритма:
 
@@ -14,6 +14,6 @@
 6. Передача аргументов в функцию.
 7. Возврат ответа.
 
-## Приложение
+# Приложение
 
 Модуль **[app](https://github.com/artembirmin/countype/tree/master/app)** был написан во времена, когда автор не знал о существовании фреймворка [Moxy](https://github.com/Arello-Mobile/Moxy) для реализации паттерна MVP и немного принебрегал чистотой кода.
